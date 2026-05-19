@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vidiyal — MONDAY, MAY 19, 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+Tamil:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:        #f4ede0;
+      --paper-2:      #efe6d4;
+      --paper-deep:   #e8dcc4;
+      --vellum:       #faf5ea;
+      --ink:          #2d2418;
+      --ink-2:        #4a3d2b;
+      --ink-3:        #7a6a52;
+      --ink-faint:    #b0a085;
+      --sienna:       #a8421f;
+      --sienna-deep:  #823217;
+      --ochre:        #d4892c;
+      --sage:         #6b7a5c;
+      --indigo-ink:   #3a4a5c;
+      --umber:        #5a3a1a;
+      --trust-primary:  #4a6b4a;
+      --trust-multi:    #6b7a5c;
+      --trust-opinion:  #a8742a;
+      --section-world:    var(--indigo-ink);
+      --section-podcasts: var(--umber);
+      --section-reddit:   var(--sienna);
+      --section-music:    var(--ochre);
+      --section-art:      #7a5c3a;
+      --section-substack: var(--indigo-ink);
+      --section-book:     var(--sage);
+      --section-quote:    var(--umber);
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "Source Serif 4", Georgia, serif;
+      --font-italic:  "EB Garamond", "Source Serif 4", Georgia, serif;
+      --font-hand:    "Caveat", cursive;
+      --font-tamil:   "Noto Serif Tamil", Georgia, serif;
+      --shadow-page:   0 1px 0 #e2d4b8, 0 2px 8px rgba(45,36,24,0.04);
+      --shadow-lifted: 0 2px 0 #d8c8a8, 0 8px 24px rgba(45,36,24,0.08);
+      --page-max: 440px;
+      --page-pad: 22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: var(--sienna); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .app { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad) 80px; }
+    .mast { padding: 28px 0 18px; border-bottom: 2px solid var(--ink); position: relative; }
+    .mast .greet { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); letter-spacing: 0.01em; }
+    .mast .wm { font-family: var(--font-display); font-weight: 500; font-size: 64px; line-height: 0.95; letter-spacing: -0.02em; color: var(--ink); margin-top: 4px; }
+    .mast .date { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink-2); margin-top: 8px; }
+    .mast .edition { position: absolute; top: 32px; right: 0; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); text-align: right; line-height: 1.35; }
+    .cover-stand { padding: 22px 0 8px; border-bottom: 1px solid #d8cab0; }
+    .cover-headline { font-family: var(--font-display); font-size: 26px; font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 10px; letter-spacing: -0.005em; text-wrap: balance; }
+    .cover-standfirst { font-family: var(--font-italic); font-style: italic; font-size: 16px; color: var(--ink-2); line-height: 1.5; margin: 0 0 10px; }
+    .tally { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+    .ornament { text-align: center; font-family: var(--font-display); color: var(--ink-faint); font-size: 18px; letter-spacing: 0.6em; margin: 32px 0; }
+    .sec { margin-top: 44px; }
+    .sec .head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 10px; }
+    .sec .head .eb { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+    .sec .head .num { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
+    .sec .ribbon { height: 2px; margin-bottom: 18px; }
+    .story { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); padding: 16px 18px 14px; position: relative; overflow: hidden; margin-bottom: 14px; }
+    .story::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--section-ink, var(--ink)); }
+    .story .eb { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--section-ink, var(--ink-3)); margin-bottom: 8px; }
+    .story h2 { font-family: var(--font-display); font-size: 21px; line-height: 1.18; color: var(--ink); font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; text-wrap: balance; }
+    .story .lede { font-family: var(--font-body); font-size: 15px; line-height: 1.5; color: var(--ink-2); margin: 0 0 10px; }
+    .story .deeper { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 8px 0 12px; padding-top: 12px; border-top: 1px solid var(--ink-faint); }
+    .story .deeper p { margin: 0 0 10px; }
+    .story .deeper p:last-child { margin-bottom: 0; }
+    .story .footrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .story .srcs { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .story .read-on { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--sienna); }
+    .story-lead::before { height: 3px; }
+    .story-lead h2 { font-size: 24px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .story-grid .story { margin-bottom: 0; }
+    .src { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
+    .src::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--trust-primary); }
+    .src.multi::before { background: var(--trust-multi); }
+    .src.opinion::before { background: var(--trust-opinion); }
+    .meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+    .art-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .art-card { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); overflow: hidden; }
+    .art-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; filter: sepia(12%) saturate(90%); }
+    .art-card .art-body { padding: 12px 14px 14px; }
+    .art-card .art-title { font-family: var(--font-display); font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.25; margin: 0 0 3px; }
+    .art-card .art-artist { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-bottom: 6px; }
+    .art-card .art-note { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .social-sentiment { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.5; }
+    .social-pullquote { background: var(--vellum); border-left: 2px solid var(--sienna); border-radius: 0 4px 4px 0; padding: 14px 16px; margin-bottom: 18px; }
+    .social-pullquote .pq-text { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--ink); line-height: 1.4; }
+    .social-pullquote .pq-attr { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+    .thread-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ink-faint); }
+    .thread-row:last-child { border-bottom: 0; }
+    .thread-source { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--sienna); flex: none; width: 96px; padding-top: 2px; }
+    .thread-body { flex: 1; }
+    .thread-title { font-family: var(--font-display); font-size: 16px; color: var(--ink); line-height: 1.25; font-weight: 500; text-wrap: balance; }
+    .thread-pulse { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 4px; line-height: 1.45; }
+    .feed-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); align-items: flex-start; }
+    .feed-row:last-child { border-bottom: 0; }
+    .feed-pub { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--indigo-ink); flex: none; width: 100px; padding-top: 3px; }
+    .feed-body { flex: 1; }
+    .feed-title { font-family: var(--font-display); font-size: 17px; color: var(--ink); font-weight: 500; line-height: 1.2; margin-bottom: 3px; }
+    .feed-lede { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .feed-meta { font-family: var(--font-italic); font-style: italic; font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+    .pod-list { display: flex; flex-direction: column; }
+    .pod-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); }
+    .pod-row:last-child { border-bottom: 0; }
+    .pod-play { width: 40px; height: 40px; border-radius: 50%; background: var(--umber); color: var(--vellum); display: flex; align-items: center; justify-content: center; flex: none; font-size: 13px; }
+    .pod-play.alt { background: var(--ink); }
+    .pod-show { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+    .pod-title { font-family: var(--font-display); font-size: 17px; color: var(--ink); font-weight: 500; line-height: 1.2; margin-top: 1px; }
+    .pod-desc { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.45; margin-top: 3px; }
+    .pod-dur { font-family: var(--font-body); font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em; white-space: nowrap; }
+    .song { display: flex; gap: 14px; align-items: center; background: var(--paper-2); border-radius: 8px; padding: 14px; box-shadow: var(--shadow-page); }
+    .song .cover { width: 68px; height: 68px; border-radius: 4px; flex: none; background: linear-gradient(135deg, #c89a4a, #8b3a2a 60%, #5a3a1a); position: relative; }
+    .song .cover::after { content: "வி"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-tamil); font-size: 28px; color: rgba(250,245,234,0.92); }
+    .song .song-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.15; }
+    .song .song-artist { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+    .song .song-meta { font-family: var(--font-body); font-size: 10px; color: var(--ink-3); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 6px; }
+    .song .play-lg { width: 44px; height: 44px; border-radius: 50%; background: var(--ochre); color: var(--vellum); display: flex; align-items: center; justify-content: center; flex: none; font-size: 16px; }
+    .song-note { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.55; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--ink-faint); }
+    .book-card { background: var(--vellum); border-radius: 8px; padding: 20px; box-shadow: var(--shadow-page); border-left: 2px solid var(--sage); }
+    .book-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 4px; }
+    .book-author { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); margin-bottom: 12px; }
+    .book-rationale { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+    .book-meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+    .verse { background: var(--vellum); border-radius: 8px; padding: 24px 22px; box-shadow: var(--shadow-page); text-align: center; border-top: 1px solid var(--ink-faint); border-bottom: 1px solid var(--ink-faint); }
+    .verse .tam { font-family: var(--font-tamil); font-size: 18px; color: var(--ink); line-height: 1.7; }
+    .verse .en { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink); line-height: 1.45; margin-top: 12px; }
+    .verse .att { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 12px; letter-spacing: 0.02em; }
+    .verse-meaning { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-top: 16px; padding-top: 14px; border-top: 1px solid #d8cab0; text-align: left; }
+    .verse-relevance { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); margin-top: 10px; line-height: 1.5; text-align: left; }
+    .foot { text-align: center; padding-top: 40px; }
+    .foot .tomorrow { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink-3); }
+    .foot .next { font-family: var(--font-display); font-size: 22px; color: var(--ink); margin-top: 4px; font-weight: 500; }
+    .colophon { font-family: var(--font-italic); font-style: italic; font-size: 11px; color: var(--ink-3); margin-top: 18px; line-height: 1.8; letter-spacing: 0.02em; }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <!-- MASTHEAD -->
+    <div class="mast">
+      <div class="greet">Good morning.</div>
+      <div class="wm">Vidiyal</div>
+      <div class="date">Monday, May 19, 2026</div>
+      <div class="edition">No.&thinsp;19<br>7:00 am</div>
+    </div>
+
+    <!-- COVER STAND -->
+    <div class="cover-stand">
+      <h1 class="cover-headline">When the tools arrive but the institutions are not ready</h1>
+      <p class="cover-standfirst">Today's brief runs along a single fault line: the gap between what AI can do and what organisations have restructured to absorb. From the IMF's growth downgrade to ECRI's diagnostic safety alarm, the evidence is consistent — access is not adoption, and adoption without redesign defers the return indefinitely.</p>
+      <div class="tally">6 articles &middot; 3 newsletters &middot; 4 episodes &middot; 1 song &middot; 1 book</div>
+    </div>
+
+    <div class="ornament">✦</div>
+
+    <!-- NEWS SECTION -->
+    <div class="sec" id="news">
+      <div class="head">
+        <div class="eb" style="color: var(--section-world)">News &amp; Analysis</div>
+        <div class="num">&#x2116;&thinsp;01</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-world)"></div>
+    </div>
+
+    <div class="story story-lead" style="--section-ink: var(--section-world)">
+      <div class="eb">Global Economy</div>
+      <h2>IMF cuts world growth forecast to 3.1% as Middle East conflict closes Strait of Hormuz</h2>
+      <p class="lede">The IMF's April 2026 World Economic Outlook downgraded the global growth projection to 3.1% — down from 3.4% in 2025 — citing a new Middle East conflict that has disrupted critical energy infrastructure. The report warns that an adverse scenario could push growth as low as 2.5% while driving inflation to 5.4%.</p>
+      <div class="deeper">
+        <p>The Fund's central scenario assumes the conflict remains limited in scope and duration, projecting global growth at 3.1% in 2026 and 3.2% in 2027, with global headline inflation at 4.4% this year before easing in 2027. Advanced economies are projected to grow at just 1.8%, with the United States at 2.3% and the Euro area at a sluggish 1.1%. Emerging market and developing economies face a sharper growth-inflation trade-off, as energy cost pass-through hits demand and erodes central bank credibility built since 2022.</p>
+        <p>The IMF identified three escalation scenarios beyond its baseline. In an adverse case, sharper energy price spikes and rising inflation expectations slow global growth to 2.5% and push inflation to 5.4%. In a severe scenario where supply dislocations persist into 2027, global growth falls to 2.0% for two consecutive years. The Fund's policy prescription calls on central banks to preserve price stability and on multilateral bodies to resist trade fragmentation — which it identifies alongside the conflict itself as a compounding downside risk.</p>
+        <p>A structural concern also surfaces in the report: any reassessment of AI-driven productivity expectations could further weaken growth outlooks that have partly been sustained by optimism about technology-led gains. East Asia and Pacific growth is projected to slow to 4.4% in 2026, with China decelerating to 4.4% due to a structural domestic demand slowdown.</p>
+      </div>
+      <div class="footrow">
+        <div class="srcs"><span class="src primary">IMF World Economic Outlook</span><span class="meta">April 14, 2026 &middot; 12 min read</span></div>
+        <a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" class="read-on" target="_blank" rel="noopener">Read on &#x2192;</a>
+      </div>
+    </div>
+
+    <div class="story-grid">
+      <div class="story" style="--section-ink: var(--section-world)">
+        <div class="eb">AI at Work</div>
+        <h2>Microsoft finds culture — not workers — is the main barrier to AI value</h2>
+        <p class="lede">Based on 20,000 workers across ten countries, Microsoft's 2026 Work Trend Index concludes that organisational factors account for 67% of variance in AI value achieved versus 32% for individual skills. Active agents on the platform grew 15&#x00D7; year-over-year.</p>
+        <div class="footrow">
+          <span class="src primary">Microsoft Work Trend Index</span>
+          <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+        </div>
+      </div>
+      <div class="story" style="--section-ink: var(--section-world)">
+        <div class="eb">Health AI Risk</div>
+        <h2>ECRI names AI-driven misdiagnosis the top patient safety threat of 2026</h2>
+        <p class="lede">Physician AI adoption jumped from 38% to 66% in a single year. ECRI warns that automation bias is generating missed and incorrect diagnoses at a pace that has outrun hospital governance frameworks.</p>
+        <div class="footrow">
+          <span class="src primary">ECRI</span>
+          <a href="https://home.ecri.org/blogs/ecri-news/ai-use-in-diagnostic-care-rural-care-access-and-surge-in-preventable-diseases-top-annual-report-of-patient-safety-concerns" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+        </div>
+      </div>
+      <div class="story" style="--section-ink: var(--section-world)">
+        <div class="eb">Enterprise AI</div>
+        <h2>Deloitte: 60% of AI-equipped workers do not use the tools daily despite 50% surge in access</h2>
+        <p class="lede">Access to sanctioned AI grew by 50% in one year, yet daily adoption stayed flat. The culprit, Deloitte argues, is a focus on training for fluency rather than redesigning the work itself — 73% of organisations still hitting adoption walls.</p>
+        <div class="footrow">
+          <span class="src primary">Deloitte</span>
+          <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+        </div>
+      </div>
+      <div class="story" style="--section-ink: var(--section-world)">
+        <div class="eb">Science Breakthrough</div>
+        <h2>Fat-burning enzyme HSL found in cell nuclei, rewriting 60 years of obesity science</h2>
+        <p class="lede">A Cell Metabolism study discovered that hormone-sensitive lipase — long understood solely as the body's fat-release switch — also lives inside adipocyte nuclei, where it regulates gene activity and accumulates abnormally in obese mice.</p>
+        <div class="footrow">
+          <span class="src primary">Cell Metabolism</span>
+          <a href="https://www.sciencedaily.com/releases/2026/05/260508171123.htm" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+        </div>
+      </div>
+      <div class="story" style="--section-ink: var(--section-world)">
+        <div class="eb">Behavioral Science</div>
+        <h2>AI transparency badges boost decision confidence only when they match your preferences</h2>
+        <p class="lede">The first randomized experiment on AI nudge labels (n=837) finds that "Amazon's Choice"-style badges raise choice confidence substantially — but only when the recommendation already aligns with the user's prior preference, raising automation bias concerns for mismatch conditions.</p>
+        <div class="footrow">
+          <span class="src primary">Intl. Journal of Information Management</span>
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167923625001666" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- ART SECTION -->
+    <div class="sec" id="art">
+      <div class="head">
+        <div class="eb" style="color: var(--section-art)">Art of the Day</div>
+        <div class="num">&#x2116;&thinsp;02</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-art)"></div>
+    </div>
+
+    <div class="art-grid">
+      <div class="art-card">
+        <img src="https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/400,/0/default.jpg" alt="A Sunday on La Grande Jatte — 1884" loading="lazy">
+        <div class="art-body">
+          <div class="art-title">A Sunday on La Grande Jatte — 1884</div>
+          <div class="art-artist">Georges Seurat &middot; 1884–86</div>
+          <div class="art-note">Painted over two years from hundreds of studies, the canvas was built using thousands of small dots of pure colour that the eye blends at a distance. The border was added later, also in dots, extending the optical vibration to the very edge. It is simultaneously a precise social document and a formal experiment in how the eye constructs a whole from separate points.</div>
+        </div>
+      </div>
+      <div class="art-card">
+        <img src="https://www.artic.edu/iiif/2/18092196-50ae-3ff1-9205-1b3110e966c3/full/400,/0/default.jpg" alt="Distant View of Niagara Falls" loading="lazy">
+        <div class="art-body">
+          <div class="art-title">Distant View of Niagara Falls</div>
+          <div class="art-artist">Thomas Cole &middot; 1830</div>
+          <div class="art-note">Cole painted this from a distance rather than the falls' edge — rendering them as one element within a wider landscape rather than a spectacle of raw force. Painted in oil on wood panel in 1830, as Cole was establishing the Hudson River School's vocabulary, the small figures at left measure the sublime not by awe alone but by calm comparison.</div>
+        </div>
+      </div>
+      <div class="art-card">
+        <img src="https://www.artic.edu/iiif/2/ace9f8d4-eac7-e5f7-50b2-6a77f7029c9b/full/400,/0/default.jpg" alt="Sky above Clouds IV" loading="lazy">
+        <div class="art-body">
+          <div class="art-title">Sky above Clouds IV</div>
+          <div class="art-artist">Georgia O'Keeffe &middot; 1965</div>
+          <div class="art-note">Painted when O'Keeffe was 77, this is among the largest canvases she ever worked on. The view is aerial — clouds seen from above, receding to a pale horizon. The simplification is complete: no weather, no drama, only the quiet geometry of rounded forms extending without end. The scale required the canvas to be laid flat on the studio floor.</div>
+        </div>
+      </div>
+      <div class="art-card">
+        <img src="https://www.artic.edu/iiif/2/d55b0cfc-0716-d6cd-3b38-5742903ce046/full/400,/0/default.jpg" alt="Mountain Brook" loading="lazy">
+        <div class="art-body">
+          <div class="art-title">Mountain Brook</div>
+          <div class="art-artist">Albert Bierstadt &middot; 1863</div>
+          <div class="art-note">Bierstadt painted mountain subjects with a theatrical light drawn from both Hudson River School tradition and his Düsseldorf Academy training. In this oil on canvas, water carries the light downward while forest closes above, creating an interior that is quiet rather than grand. It was painted in 1863, the same year Bierstadt completed the monumental Rocky Mountains, Lander's Peak.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ornament">✦</div>
+
+    <!-- SOCIAL SECTION -->
+    <div class="sec" id="social">
+      <div class="head">
+        <div class="eb" style="color: var(--section-reddit)">Pulse</div>
+        <div class="num">&#x2116;&thinsp;03</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-reddit)"></div>
+    </div>
+
+    <p class="social-sentiment">The mood across social signals today is tense and consequential — AI governance is crystallising into real institutional action while the Strait of Hormuz crisis sharpens a sense that geopolitical risk is no longer abstract; commentators are asking hard questions about whether incumbents can adapt fast enough on both fronts.</p>
+
+    <div class="social-pullquote">
+      <div class="pq-text">"The more successful AI becomes, the less we'll think of it as AI — every capability it masters becomes 'normal computing.'"</div>
+      <div class="pq-attr">— Benedict Evans, 'AI Eats the World' Spring 2026 presentation (@benedictevans)</div>
+    </div>
+
+    <div class="thread-row">
+      <div class="thread-source">r/artificial</div>
+      <div class="thread-body">
+        <div class="thread-title"><a href="https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html" target="_blank" rel="noopener">Google, Microsoft and xAI agree to let NIST test their models before public release</a></div>
+        <div class="thread-pulse">A landmark voluntary agreement now lets the US Commerce Dept evaluate frontier models pre-launch for cybersecurity and national-security risks. Discussion centres on whether voluntary commitments can substitute for statutory authority.</div>
+      </div>
+    </div>
+    <div class="thread-row">
+      <div class="thread-source">r/geopolitics</div>
+      <div class="thread-body">
+        <div class="thread-title"><a href="https://www.weforum.org/stories/2026/05/blockade-diplomacy-and-other-geopolitical-stories-to-know-this-month/" target="_blank" rel="noopener">Blockade diplomacy: how the Strait of Hormuz standoff is redrawing global energy and food security</a></div>
+        <div class="thread-pulse">Iran has blocked Hormuz shipping since late February; the WEF estimates the fertiliser and transport disruption could push 45 million additional Asia-Pacific people into acute hunger by year-end.</div>
+      </div>
+    </div>
+    <div class="thread-row">
+      <div class="thread-source">r/digitalhealth</div>
+      <div class="thread-body">
+        <div class="thread-title"><a href="https://www.statnews.com/2026/04/09/fda-rejects-proposal-to-deregulate-ai-devices-health-tech/" target="_blank" rel="noopener">FDA rejects Harrison.ai proposal to deregulate premarket review for diagnostic AI imaging software</a></div>
+        <div class="thread-pulse">After 47 public comments, the FDA declined to exempt AI-enabled radiology software from 510(k) review — drawing a line at high-stakes diagnostic AI even as it loosened oversight of low-risk wearables.</div>
+      </div>
+    </div>
+    <div class="thread-row">
+      <div class="thread-source">@benedictevans</div>
+      <div class="thread-body">
+        <div class="thread-title"><a href="https://www.ben-evans.com/presentations" target="_blank" rel="noopener">Benedict Evans' 'AI Eats the World' spring deck: intelligence is becoming a commodity</a></div>
+        <div class="thread-pulse">Evans argues foundational AI models are racing to the bottom on price, making proprietary data, workflow integration, and distribution the only durable value capture points. AI's destiny is to become invisible infrastructure.</div>
+      </div>
+    </div>
+    <div class="thread-row">
+      <div class="thread-source">@ourworldindata</div>
+      <div class="thread-body">
+        <div class="thread-title"><a href="https://ourworldindata.org/population-simulation-tool" target="_blank" rel="noopener">New interactive tool lets anyone model how fertility, life expectancy and migration reshape national populations through 2100</a></div>
+        <div class="thread-pulse">The South Korea case study is striking: even extreme migration gains barely dent population decline without a fertility rebound toward 2.3 children per woman. The tool makes demographic uncertainty legible to non-specialists.</div>
+      </div>
+    </div>
+
+    <div class="ornament">· · ·</div>
+
+    <!-- SUBSTACK SECTION -->
+    <div class="sec" id="substack">
+      <div class="head">
+        <div class="eb" style="color: var(--section-substack)">Reading Queue</div>
+        <div class="num">&#x2116;&thinsp;04</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-substack)"></div>
+    </div>
+
+    <div class="feed-row">
+      <div class="feed-pub">Cal Newport</div>
+      <div class="feed-body">
+        <div class="feed-title"><a href="https://calnewport.com/the-dark-side-of-the-jevons-paradox/" target="_blank" rel="noopener">The dark side of the Jevons paradox</a></div>
+        <div class="feed-lede">If you've been following technology news recently, you've probably noticed a sudden increase in references to a 19th-century economics theory called the Jevons Paradox — increasing the efficiency of a resource can lead to greater consumption. Newport warns about unintended consequences when AI demand suddenly spikes.</div>
+        <div class="feed-meta">May 18, 2026 &middot; 8 min</div>
+      </div>
+    </div>
+    <div class="feed-row">
+      <div class="feed-pub">Silver Bulletin</div>
+      <div class="feed-body">
+        <div class="feed-title"><a href="https://www.natesilver.net/p/disney-erased-fivethirtyeight" target="_blank" rel="noopener">Disney erased FiveThirtyEight</a></div>
+        <div class="feed-lede">Nothing on the internet lasts forever — but Disney's 10-year mismanagement of FiveThirtyEight is its own story. Nate Silver recounts discovering that roughly 200,000 person-hours of archived work had been quietly deleted.</div>
+        <div class="feed-meta">May 19, 2026 &middot; 10 min</div>
+      </div>
+    </div>
+    <div class="feed-row">
+      <div class="feed-pub">Exponential View</div>
+      <div class="feed-body">
+        <div class="feed-title"><a href="https://www.exponentialview.co/p/monday-data-the-cost-of-tokenmaxxing" target="_blank" rel="noopener">Data to start your week: the cost of tokenmaxxing</a></div>
+        <div class="feed-lede">Uber's CTO revealed that his 5,000 engineers depleted their entire 2026 token budget in just four months — and ServiceNow has done the same. The economics of AI access are shifting faster than forecasts assumed.</div>
+        <div class="feed-meta">May 18, 2026 &middot; 3 min</div>
+      </div>
+    </div>
+
+    <!-- PODCAST SECTION -->
+    <div class="ornament">· · ·</div>
+    <div class="sec" id="podcasts">
+      <div class="head">
+        <div class="eb" style="color: var(--section-podcasts)">On the Queue</div>
+        <div class="num">&#x2116;&thinsp;05</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-podcasts)"></div>
+    </div>
+    <div class="pod-list">
+      <div class="pod-row">
+        <div class="pod-play">&#x25B6;</div>
+        <div style="flex: 1">
+          <div class="pod-show">NYT The Daily</div>
+          <div class="pod-title">A Trump dissenter fights for his political life</div>
+          <div class="pod-desc">In Kentucky, amid record-low approval ratings, Trump is asking Republican primary voters to reject Representative Thomas Massie, who has broken with him on a handful of votes.</div>
+        </div>
+        <div class="pod-dur">35 min</div>
+      </div>
+      <div class="pod-row">
+        <div class="pod-play alt">&#x25B6;</div>
+        <div style="flex: 1">
+          <div class="pod-show">99% Invisible</div>
+          <div class="pod-title">100 Objects #1: The Century Safe</div>
+          <div class="pod-desc">In 1876, Americans filled an iron safe with objects meant to tell their story — to be opened a century later. Roman Mars and historian Jill Lepore trace its long wait and the surprising contents that emerged in 1976.</div>
+        </div>
+        <div class="pod-dur">30 min</div>
+      </div>
+      <div class="pod-row">
+        <div class="pod-play">&#x25B6;</div>
+        <div style="flex: 1">
+          <div class="pod-show">Cautionary Tales</div>
+          <div class="pod-title">From Drilled: the carbon gold rush</div>
+          <div class="pod-desc">Investigative climate journalist Amy Westervelt exposes how corporate corruption and political operatives built decades of climate denial and delay — the longer, harder story behind the headlines.</div>
+        </div>
+        <div class="pod-dur">28 min</div>
+      </div>
+      <div class="pod-row">
+        <div class="pod-play alt">&#x25B6;</div>
+        <div style="flex: 1">
+          <div class="pod-show">Economics of Everyday Things</div>
+          <div class="pod-title">40. Prosthetic limbs</div>
+          <div class="pod-desc">More and more Americans rely on prostheses — custom-fitted, highly personal, and extremely expensive. Zachary Crockett investigates the economics behind the prosthetics industry.</div>
+        </div>
+        <div class="pod-dur">17 min</div>
+      </div>
+    </div>
+
+    <div class="ornament">✦</div>
+
+    <!-- MUSIC SECTION -->
+    <div class="sec" id="music">
+      <div class="head">
+        <div class="eb" style="color: var(--section-music)">Song of the Day</div>
+        <div class="num">&#x2116;&thinsp;06</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-music)"></div>
+    </div>
+
+    <div class="song">
+      <div class="cover"></div>
+      <div style="flex: 1">
+        <div class="song-title">Nothing But Wind</div>
+        <div class="song-artist">Ilaiyaraaja &middot; <em>How To Name It</em> &middot; 1986</div>
+        <div class="song-meta">Indian Instrumental &middot; Chamber piece &middot; Ragam: Hamsadhwani</div>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=Ilaiyaraaja+Nothing+But+Wind+How+To+Name+It+1986" target="_blank" rel="noopener" class="play-lg">&#x25B6;</a>
+    </div>
+    <p class="song-note">A solo flute states the Hamsadhwani melody with almost no vibrato — bare, unhurried, as if the note itself is deciding where to go next. The strings enter not to accompany but to breathe underneath, creating a stillness that belongs more to early morning than to any concert hall. Ilaiyaraaja wrote this at a moment when no Indian film composer had attempted this kind of structural trust in a single melodic line, and that restraint is exactly what makes it worth sitting with on a quiet Monday.</p>
+
+    <div class="ornament">· · ·</div>
+
+    <!-- BOOK SECTION -->
+    <div class="sec" id="book">
+      <div class="head">
+        <div class="eb" style="color: var(--section-book)">From the Shelf</div>
+        <div class="num">&#x2116;&thinsp;07</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-book)"></div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-title"><a href="https://www.goodreads.com/book/show/2767632-the-pregnant-king" target="_blank" rel="noopener">The Pregnant King</a></div>
+      <div class="book-author">Devdutt Pattanaik</div>
+      <p class="book-rationale">A compact, philosophically dense retelling set in the world of the Mahabharata, this novel forces the reader to sit with questions that have no clean answers — what happens when dharma for a mother directly contradicts dharma for a queen? Given the reader's appetite for Indian mythology retellings like Kaikeyi, this offers a similarly woman-centered lens but through Pattanaik's particular brand of mythological philosophy, where the real challenge is accepting ambiguity as the answer. It will push back against any instinct to resolve moral dilemmas neatly.</p>
+      <div class="book-meta">Indian mythology &middot; 2008</div>
+    </div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- QUOTE SECTION -->
+    <div class="sec" id="quote">
+      <div class="head">
+        <div class="eb" style="color: var(--section-quote)">A Thought for Today</div>
+        <div class="num">&#x2116;&thinsp;08</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-quote)"></div>
+    </div>
+
+    <div class="verse">
+      <div class="tam">சுயமரியாதை உள்ளவன் தன் உரிமைகளை யாசிக்கமாட்டான்; கோருவான்.</div>
+      <div class="en">"A person who has self-respect will not beg for his rights. He will demand them."</div>
+      <div class="att">— Periyar &middot; Kudi Arasu, 1930s</div>
+      <div class="verse-meaning">Periyar is drawing a sharp line between two postures: begging and demanding. When you beg for a right, you accept that someone else has the power to grant or withhold it — which already concedes your subordination. When you demand a right, you assert that it belongs to you by nature, not by someone else's generosity. Self-respect, for Periyar, is the inner stance that makes demanding — rather than pleading — feel both natural and necessary.</div>
+      <div class="verse-relevance">In a week when movements for rights — whether caste equity, gender justice, or economic dignity — are still framed as appeals to authority rather than non-negotiable claims, Periyar's distinction cuts through: rights are not gifts to be grateful for, and the first revolution must happen in how we see ourselves.</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="foot">
+      <div class="ornament" style="margin-top: 36px">· · ·</div>
+      <div class="tomorrow">until tomorrow,</div>
+      <div class="next">vidiyal.</div>
+      <div class="colophon">
+        Vidiyal &middot; 2026-05-19 &middot; 6 articles &middot; 3 newsletters &middot; 4 episodes &middot; 4 artworks<br>
+        Art sourced from the Art Institute of Chicago Open Access collection.<br>
+        &copy;&thinsp;2026 &middot; reshamad
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
