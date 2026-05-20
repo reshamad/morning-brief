@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vidiyal — WEDNESDAY, MAY 20, 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+Tamil:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* === VIDIYAL DESIGN TOKENS === */
+    :root {
+      --paper:        #f4ede0;
+      --paper-2:      #efe6d4;
+      --paper-deep:   #e8dcc4;
+      --vellum:       #faf5ea;
+      --ink:          #2d2418;
+      --ink-2:        #4a3d2b;
+      --ink-3:        #7a6a52;
+      --ink-faint:    #b0a085;
+      --sienna:       #a8421f;
+      --sienna-deep:  #823217;
+      --ochre:        #d4892c;
+      --sage:         #6b7a5c;
+      --indigo-ink:   #3a4a5c;
+      --umber:        #5a3a1a;
+      --trust-primary:  #4a6b4a;
+      --trust-multi:    #6b7a5c;
+      --trust-opinion:  #a8742a;
+      --section-world:    var(--indigo-ink);
+      --section-india:    var(--sage);
+      --section-podcasts: var(--umber);
+      --section-reddit:   var(--sienna);
+      --section-music:    var(--ochre);
+      --section-word:     var(--ochre);
+      --section-verse:    var(--umber);
+      --section-prompt:   var(--sage);
+      --section-art:      #7a5c3a;
+      --section-substack: var(--indigo-ink);
+      --section-book:     var(--sage);
+      --section-quote:    var(--umber);
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "Source Serif 4", Georgia, serif;
+      --font-italic:  "EB Garamond", "Source Serif 4", Georgia, serif;
+      --font-hand:    "Caveat", cursive;
+      --font-tamil:   "Noto Serif Tamil", Georgia, serif;
+      --shadow-page:   0 1px 0 #e2d4b8, 0 2px 8px rgba(45,36,24,0.04);
+      --shadow-lifted: 0 2px 0 #d8c8a8, 0 8px 24px rgba(45,36,24,0.08);
+      --page-max: 440px;
+      --page-pad: 22px;
+    }
+
+    /* === BASE === */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: var(--sienna); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* === LAYOUT === */
+    .app { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad) 80px; }
+
+    /* === MASTHEAD === */
+    .mast { padding: 28px 0 18px; border-bottom: 2px solid var(--ink); position: relative; margin-bottom: 0; }
+    .mast .greet { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); letter-spacing: 0.01em; }
+    .mast .wm { font-family: var(--font-display); font-weight: 500; font-size: 64px; line-height: 0.95; letter-spacing: -0.02em; color: var(--ink); margin-top: 4px; }
+    .mast .date { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink-2); margin-top: 8px; }
+    .mast .edition { position: absolute; top: 32px; right: 0; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); text-align: right; line-height: 1.35; }
+
+    /* === COVER STAND === */
+    .cover-stand { padding: 22px 0 8px; border-bottom: 1px solid #d8cab0; }
+    .cover-headline { font-family: var(--font-display); font-size: 26px; font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 10px; letter-spacing: -0.005em; text-wrap: balance; }
+    .cover-standfirst { font-family: var(--font-italic); font-style: italic; font-size: 16px; color: var(--ink-2); line-height: 1.5; margin: 0 0 10px; }
+    .tally { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+
+    /* === ORNAMENT === */
+    .ornament { text-align: center; font-family: var(--font-display); color: var(--ink-faint); font-size: 18px; letter-spacing: 0.6em; margin: 32px 0; }
+
+    /* === SECTION HEADER === */
+    .sec { margin-top: 44px; }
+    .sec .head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 10px; }
+    .sec .head .eb { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+    .sec .head .num { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
+    .sec .ribbon { height: 2px; margin-bottom: 18px; }
+    .sec .title { font-family: var(--font-display); font-size: 28px; font-weight: 500; line-height: 1.1; margin: 0 0 14px; color: var(--ink); letter-spacing: -0.005em; }
+    .sec .standfirst { font-family: var(--font-italic); font-style: italic; font-size: 16px; color: var(--ink-2); line-height: 1.5; margin: 0 0 22px; text-wrap: pretty; }
+
+    /* === STORY CARD === */
+    .story { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); padding: 16px 18px 14px; position: relative; overflow: hidden; margin-bottom: 14px; }
+    .story::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--section-ink, var(--ink)); }
+    .story .eb { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--section-ink, var(--ink-3)); margin-bottom: 8px; }
+    .story h2 { font-family: var(--font-display); font-size: 21px; line-height: 1.18; color: var(--ink); font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; text-wrap: balance; }
+    .story .lede { font-family: var(--font-body); font-size: 15px; line-height: 1.5; color: var(--ink-2); margin: 0 0 10px; }
+    .story .deeper { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 8px 0 12px; padding-top: 12px; border-top: 1px solid var(--ink-faint); }
+    .story .deeper p { margin: 0 0 10px; }
+    .story .deeper p:last-child { margin-bottom: 0; }
+    .story .footrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .story .srcs { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .story .read-on { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--sienna); }
+    .story-lead::before { height: 3px; }
+    .story-lead h2 { font-size: 24px; }
+    /* === NEWS STACK (replaces 2-col grid) === */
+    .news-stack { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .news-item { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); position: relative; overflow: hidden; display: flex; align-items: stretch; }
+    .news-item::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--section-ink, var(--section-world)); }
+    .news-num { font-family: var(--font-display); font-size: 38px; font-weight: 600; color: var(--ink-faint); line-height: 1; width: 54px; flex: none; padding: 18px 0 14px 16px; letter-spacing: -0.03em; opacity: 0.55; }
+    .news-body { flex: 1; padding: 16px 16px 14px 4px; min-width: 0; }
+    .news-body .eb { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--section-ink, var(--ink-3)); margin-bottom: 5px; }
+    .news-body h3 { font-family: var(--font-display); font-size: 19px; line-height: 1.2; color: var(--ink); font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; text-wrap: balance; }
+    .news-body .lede-sm { font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-2); margin: 0 0 9px; }
+    .news-footrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .src { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
+    .src::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--trust-primary); }
+    .src.multi::before { background: var(--trust-multi); }
+    .src.opinion::before { background: var(--trust-opinion); }
+    .meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+
+    /* === ART CARD (single featured work) === */
+    .art-card-full { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); overflow: hidden; }
+    .art-card-full img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; filter: sepia(10%) saturate(88%); }
+    .art-card-full .art-body { padding: 16px 18px 18px; }
+    .art-card-full .art-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.2; margin: 0 0 4px; }
+    .art-card-full .art-artist { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-bottom: 10px; }
+    .art-card-full .art-note { font-family: var(--font-body); font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+    /* === SOCIAL / REDDIT === */
+    .social-sentiment { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.5; }
+    .social-pullquote { background: var(--vellum); border-left: 2px solid var(--sienna); border-radius: 0 4px 4px 0; padding: 14px 16px; margin-bottom: 18px; }
+    .social-pullquote .pq-text { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--ink); line-height: 1.4; }
+    .social-pullquote .pq-attr { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+    .thread-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ink-faint); }
+    .thread-row:last-child { border-bottom: 0; }
+    .thread-source { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--sienna); flex: none; width: 96px; padding-top: 2px; }
+    .thread-body { flex: 1; }
+    .thread-title { font-family: var(--font-display); font-size: 16px; color: var(--ink); line-height: 1.25; font-weight: 500; text-wrap: balance; }
+    .thread-pulse { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 4px; line-height: 1.45; }
+
+    /* === SUBSTACK / READING QUEUE === */
+    .feed-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); align-items: flex-start; }
+    .feed-row:last-child { border-bottom: 0; }
+    .feed-pub { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--indigo-ink); flex: none; width: 100px; padding-top: 3px; }
+    .feed-body { flex: 1; }
+    .feed-title { font-family: var(--font-display); font-size: 17px; color: var(--ink); font-weight: 500; line-height: 1.2; margin-bottom: 3px; }
+    .feed-lede { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .feed-meta { font-family: var(--font-italic); font-style: italic; font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+
+    /* === PODCASTS === */
+    .pod-list { display: flex; flex-direction: column; }
+    .pod-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); }
+    .pod-row:last-child { border-bottom: 0; }
+    .pod-play { width: 40px; height: 40px; border-radius: 50%; background: var(--umber); color: var(--vellum); display: flex; align-items: center; justify-content: center; flex: none; font-size: 13px; }
+    .pod-play.alt { background: var(--ink); }
+    .pod-show { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+    .pod-title { font-family: var(--font-display); font-size: 17px; color: var(--ink); font-weight: 500; line-height: 1.2; margin-top: 1px; }
+    .pod-meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+    .pod-dur { font-family: var(--font-body); font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em; white-space: nowrap; }
+
+    /* === MUSIC === */
+    .song { display: flex; gap: 14px; align-items: center; background: var(--paper-2); border-radius: 8px; padding: 14px; box-shadow: var(--shadow-page); }
+    .song .cover { width: 68px; height: 68px; border-radius: 4px; flex: none; background: linear-gradient(135deg, #c89a4a, #8b3a2a 60%, #5a3a1a); position: relative; }
+    .song .cover::after { content: "வி"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-tamil); font-size: 28px; color: rgba(250,245,234,0.92); }
+    .song .song-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.15; }
+    .song .song-title .tam { font-family: var(--font-tamil); }
+    .song .song-artist { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+    .song .song-meta { font-family: var(--font-body); font-size: 10px; color: var(--ink-3); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 6px; }
+    .song .play-lg { width: 44px; height: 44px; border-radius: 50%; background: var(--ochre); color: var(--vellum); display: flex; align-items: center; justify-content: center; flex: none; }
+    .song-note { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.55; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--ink-faint); }
+
+    /* === BOOK === */
+    .book-card { background: var(--vellum); border-radius: 8px; padding: 20px; box-shadow: var(--shadow-page); border-left: 2px solid var(--sage); }
+    .book-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 4px; }
+    .book-author { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); margin-bottom: 12px; }
+    .book-rationale { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+    .book-meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+
+    /* === QUOTE (Periyar) === */
+    .verse { background: var(--vellum); border-radius: 8px; padding: 24px 22px; box-shadow: var(--shadow-page); text-align: center; border-top: 1px solid var(--ink-faint); border-bottom: 1px solid var(--ink-faint); }
+    .verse .tam { font-family: var(--font-tamil); font-size: 18px; color: var(--ink); line-height: 1.7; }
+    .verse .en { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink); line-height: 1.45; margin-top: 12px; }
+    .verse .att { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 12px; letter-spacing: 0.02em; }
+    .verse-meaning { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-top: 16px; padding-top: 14px; border-top: 1px solid #d8cab0; text-align: left; }
+    .verse-relevance { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); margin-top: 10px; line-height: 1.5; text-align: left; }
+
+    /* === FOOTER === */
+    .foot { text-align: center; padding-top: 40px; }
+    .foot .tomorrow { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink-3); }
+    .foot .next { font-family: var(--font-display); font-size: 22px; color: var(--ink); margin-top: 4px; font-weight: 500; }
+    .colophon { font-family: var(--font-italic); font-style: italic; font-size: 11px; color: var(--ink-3); margin-top: 18px; line-height: 1.8; letter-spacing: 0.02em; }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <!-- MASTHEAD -->
+    <div class="mast">
+      <div class="greet">Good morning.</div>
+      <div class="wm">Vidiyal</div>
+      <div class="date">Wednesday, May 20, 2026</div>
+      <div class="edition">No. 20<br>7:00 am</div>
+    </div>
+
+    <!-- COVER STAND -->
+    <div class="cover-stand">
+      <h1 class="cover-headline">The gap is governance, not technology</h1>
+      <p class="cover-standfirst">Three of today's six articles — from Microsoft, ECRI, and the no-code market — land on the same finding: the limiting factor in AI's impact is culture, oversight, and incentive design, not capability. Alongside them: an Alzheimer's nanoparticle result that is genuinely surprising, and Periyar on why inherited hierarchy is not tradition but engineered injustice.</p>
+      <div class="tally">6 articles · 4 newsletters · 3 episodes · 1 song · 1 book</div>
+    </div>
+
+    <div class="ornament">✦</div>
+
+    <!-- NEWS SECTION -->
+    <div class="sec" id="news">
+      <div class="head">
+        <div class="eb" style="color: var(--section-world)">News &amp; Analysis</div>
+        <div class="num">&#x2116;&thinsp;01</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-world)"></div>
+    </div>
+    <div class="story story-lead" style="--section-ink: var(--section-world)">
+  <div class="eb">AI · KNOWLEDGE WORK</div>
+  <h2>Microsoft's 20,000-person study finds organisational culture — not workers — is blocking AI's productivity gains</h2>
+  <p class="lede">A new Microsoft Work Trend Index study reveals a striking paradox: 65% of AI users fear falling behind if they don't adapt, yet 45% say it feels safer to stick with current goals. The data show that culture, manager support, and talent practices account for 67% of AI impact — more than twice the contribution of individual worker factors.</p>
+  <div class="deeper"><p>The May 2026 study surveyed 20,000 AI users across multiple countries and found that organisational factors — culture, manager support, and talent practices — account for 67% of the variation in self-reported AI impact, versus just 32% attributable to individual mindset and behaviour. The headline finding is what Microsoft's researchers call the 'Transformation Paradox': 65% of AI users fear falling behind if they don't adapt, yet 45% say it feels safer to stick with current goals than to redesign work around AI. Only 13% say their organisation actively rewards reinventing workflows when initial results are uneven.</p>
+<p>A separate strand of Microsoft's research quantified what AI can do when the culture supports it. Copilot users in controlled settings completed tasks 29% faster and rated their emails 18–19% more clear and concise. Nearly half of enterprise Copilot chat activity now supports high-value analytical work — analysis, decisions, and problem-solving — rather than simple information retrieval. The gap between what the technology can deliver and what most organisations actually get is therefore not a capability gap: it is a governance and incentive gap.</p>
+<p>The report introduces the concept of 'Frontier Firms' — organisations that have begun rebuilding their operating models around AI agents rather than bolt-on AI tools. These firms treat AI not as a productivity assistant for individuals but as a mechanism to redesign how work moves across the organisation: flattening approval chains, spinning up cross-functional agents, and measuring outputs rather than activity. Microsoft's data suggest that the distance between the average organisation and a Frontier Firm will be the defining competitive variable of the next three years.</p></div>
+  <div class="footrow">
+    <div class="srcs"><span class="src primary">Microsoft / GeekWire</span><span class="meta">15 days ago · 7 min read</span></div>
+    <a href="https://www.geekwire.com/2026/microsofts-new-research-finds-an-ai-paradox-holding-companies-back/" class="read-on" target="_blank" rel="noopener">Read on &#x2192;</a>
+  </div>
+</div>
+    <div class="news-stack">
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">02</div>
+    <div class="news-body">
+      <div class="eb">GLOBAL ECONOMICS</div>
+      <h3>War darkens global economic outlook and reshapes policy priorities, IMF warns</h3>
+      <p class="lede-sm">The IMF's April 2026 World Economic Outlook cuts global growth to 3.1% this year — down from a pre-conflict forecast of 3.4% — as the Middle East war drives energy price shocks and keeps inflation above target across both advanced and emerging economies.</p>
+      <div class="news-footrow">
+        <span class="src primary">IMF</span>
+        <a href="https://www.imf.org/en/blogs/articles/2026/04/14/war-darkens-global-economic-outlook-and-reshapes-policy-priorities" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">03</div>
+    <div class="news-body">
+      <div class="eb">AI · HEALTH</div>
+      <h3>AI diagnostic risks top ECRI's 2026 patient safety concerns list for the first time</h3>
+      <p class="lede-sm">The patient safety watchdog ECRI has placed AI-assisted diagnosis at the very top of its annual Top 10 concerns, warning that automation bias, training-data gaps, and overreliance on algorithmic outputs are creating new pathways to missed, delayed, and incorrect diagnoses.</p>
+      <div class="news-footrow">
+        <span class="src multi">ECRI / Fierce Healthcare</span>
+        <a href="https://www.fiercehealthcare.com/providers/ai-fueled-misdiagnoses-rural-care-barriers-are-2026s-top-patient-safety-threats-ecri" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">04</div>
+    <div class="news-body">
+      <div class="eb">SCIENCE · MEDICINE</div>
+      <h3>A single injection cleared 45% of brain amyloid in mice — and reversed Alzheimer's behaviour</h3>
+      <p class="lede-sm">Researchers from Spain, China, and the UK have published results showing that bioactive nanoparticles, designed to repair the brain's blood-brain barrier rather than attack plaques directly, restored normal memory and social behaviour in elderly mice with Alzheimer's pathology.</p>
+      <div class="news-footrow">
+        <span class="src primary">ScienceDaily</span>
+        <a href="https://www.sciencedaily.com/releases/2026/05/260517030326.htm" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">05</div>
+    <div class="news-body">
+      <div class="eb">BEHAVIORAL SCIENCE</div>
+      <h3>Meta-analysis of 200+ nudge studies finds food choices respond 2.5x more strongly than other domains</h3>
+      <p class="lede-sm">A large-scale synthesis of choice-architecture research confirms that nudges work — with an overall effect size of Cohen's d = 0.45 across 2 million participants — but their effectiveness varies sharply by domain, with food the most responsive and a moderate publication bias warning against over-interpreting the headline number.</p>
+      <div class="news-footrow">
+        <span class="src primary">PNAS</span>
+        <a href="https://www.pnas.org/doi/10.1073/pnas.2107346118" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">06</div>
+    <div class="news-body">
+      <div class="eb">AI · OPERATIONS</div>
+      <h3>No-code AI automation is now production-ready for non-technical teams — and the market is proving it</h3>
+      <p class="lede-sm">The no-code workflow automation market is growing at 31–38% annually and is on track to reach $25 billion by 2030, driven by HR, operations, finance, and customer-support teams building AI-assisted approval chains and data pipelines without writing a line of code.</p>
+      <div class="news-footrow">
+        <span class="src multi">GO-Globe / Vellum</span>
+        <a href="https://www.go-globe.com/no-code-automation-how-non-technical-teams-build-workflows-in-2026/" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- ART SECTION -->
+    <div class="sec" id="art">
+      <div class="head">
+        <div class="eb" style="color: var(--section-art)">Art of the Day</div>
+        <div class="num">&#x2116;&thinsp;02</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-art)"></div>
+    </div>
+    <div class="art-card-full">
+  <img src="https://www.artic.edu/iiif/2/47c5bcb8-62ef-e5d7-55e7-f5121f409a30/full/400,/0/default.jpg" alt="Self-Portrait" loading="lazy">
+  <div class="art-body">
+    <div class="art-title">Self-Portrait</div>
+    <div class="art-artist">Vincent van Gogh (Dutch, 1853–1890) &middot; 1887</div>
+    <div class="art-note">Painted in Paris in 1887, this self-portrait belongs to the period when Van Gogh was absorbing the Impressionists and experimenting with divided brushwork. The surface is built from short directional strokes radiating outward from the face — a method he was developing as he moved away from the darker palette of his Dutch years. Mounted on a cradled panel, the work has the quality of an intense private observation rather than a finished statement.</div>
+  </div>
+</div>
+
+    <div class="ornament">✦</div>
+
+    <!-- SOCIAL SECTION -->
+    <div class="sec" id="social">
+      <div class="head">
+        <div class="eb" style="color: var(--section-reddit)">Pulse</div>
+        <div class="num">&#x2116;&thinsp;03</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-reddit)"></div>
+    </div>
+    <p class="social-sentiment">The mood today is watchful and granular — the Hormuz standoff has shifted from blunt blockade to something more calculated, and the AI governance conversation is maturing from voluntary pledges into actual regulatory architecture. The question in both threads is the same: who controls the terms of access?</p>
+    <div class="social-pullquote">
+  <div class="pq-text">&ldquo;The market is maturing fast, the politics are getting sharper, and founders who still treat AI as a shiny feature are already late.&rdquo;</div>
+  <div class="pq-attr">&mdash; State of AI: May 2026 — Nathan Benaich (@nathanbenaich)</div>
+</div>
+    <div class="thread-row">
+  <div class="thread-source">r/artificial</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank" rel="noopener">McKinsey now runs 20,000 AI agents alongside 40,000 human employees — CEO makes it official</a></div>
+    <div class="thread-pulse">McKinsey CEO Bob Sternfels confirmed the firm has built a virtual workforce of 20,000 AI agents operating in parallel with its human staff — the clearest executive-level statement yet that agentic AI is being treated as headcount, not tooling. Discussion is divided between those reading it as a productivity story and those asking what it signals for future hiring.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">r/geopolitics</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://moderndiplomacy.eu/2026/05/12/control-of-the-strait-of-hormuz-may-define-the-next-phase-of-the-iran-conflict/" target="_blank" rel="noopener">Hormuz shifts from blockade to selective access — Iran now choosing who gets through</a></div>
+    <div class="thread-pulse">After Trump paused Operation Project Freedom on May 6, citing 'great progress,' tanker movements coordinated through informal Tehran understandings suggest Iran has moved from total closure to gatekeeping: vessel numbers still at ~5% of pre-conflict levels, but the blockade logic has changed. r/geopolitics is parsing whether this is de-escalation or a more durable chokehold.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">r/digitalhealth</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://telehealth.org/news/fda-clarifies-oversight-of-ai-health-software-and-wearables-limiting-regulation-of-low-risk-devices/" target="_blank" rel="noopener">FDA's dual-track AI stance is now live: deregulate low-risk, hold the line on diagnostic AI</a></div>
+    <div class="thread-pulse">The January 2026 guidance is now in force: low-risk AI clinical decision support and wearables are out of 510(k) scope if clinicians can verify the logic; diagnostic AI that influences treatment stays fully regulated. r/digitalhealth debate centres on whether 'clinician can verify the logic' is a meaningful safeguard or an escape clause when AI systems are too complex to audit in real time.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">@benedictevans</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://www.ben-evans.com/presentations" target="_blank" rel="noopener">Evans' 'AI Eats the World' spring 2026: foundational models are commoditising, distribution is the only moat</a></div>
+    <div class="thread-pulse">The latest biannual macro deck argues that as model prices race toward zero, proprietary data, workflow integration, and distribution become the only durable value-capture points. Evans' framing — that AI's destiny is to become invisible infrastructure rather than a salient product — is generating the most discussion, particularly his observation that most people try generative AI once and don't return.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">@ourworldindata</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://ourworldindata.org/population-simulation-tool" target="_blank" rel="noopener">New interactive tool models how fertility, migration and life expectancy reshape national populations to 2100</a></div>
+    <div class="thread-pulse">Published May 18, the browser-based population simulator lets users dial fertility rates, life expectancy, and net migration for any country at 2030, 2050, and 2100. The South Korea case is the one stopping people: even extreme migration gains barely dent population decline without a fertility rebound toward 2.3 — making the demographic mathematics of recovery strikingly visible.</div>
+  </div>
+</div>
+
+
+    <div class="ornament">· · ·</div>
+
+    <!-- SUBSTACK SECTION -->
+    <div class="sec" id="substack">
+      <div class="head">
+        <div class="eb" style="color: var(--section-substack)">Reading Queue</div>
+        <div class="num">&#x2116;&thinsp;04</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-substack)"></div>
+    </div>
+    <div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin" target="_blank" rel="noopener">How popular is Donald Trump?</a></div>
+    <div class="feed-lede">Silver Bulletin approval ratings for President Trump and all presidents since Truman. Trump's net approval has declined to -20.1, with his handling of inflation dropping to -41.8.</div>
+    <div class="feed-meta">2026-05-20T16:02:00Z &middot; 3 min</div>
+  </div>
+</div>
+<div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/iran-war-polls-popularity-approval" target="_blank" rel="noopener">How popular is the Iran war?</a></div>
+    <div class="feed-lede">Silver Bulletin approval ratings for the ongoing conflict. Nearly 60 percent of Americans oppose the war, up from 48 percent when the conflict began.</div>
+    <div class="feed-meta">2026-05-20T16:01:00Z &middot; 3 min</div>
+  </div>
+</div>
+<div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Who's ahead on the generic congressional ballot?</a></div>
+    <div class="feed-lede">Our constantly-updating tracker of polls for the most important indicator in the race for Congress. Democrats lead by D +6.6, the bluest environment all cycle.</div>
+    <div class="feed-meta">2026-05-20T16:00:00Z &middot; 3 min</div>
+  </div>
+</div>
+<div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/disney-erased-fivethirtyeight" target="_blank" rel="noopener">Disney erased FiveThirtyEight</a></div>
+    <div class="feed-lede">Nothing on the internet lasts forever — but Disney's 10-year mismanagement of FiveThirtyEight is its own story. &quot;200,000 person-hours of work&quot; disappeared when ABC News removed the site.</div>
+    <div class="feed-meta">2026-05-19T18:37:47Z &middot; 5 min</div>
+  </div>
+</div>
+
+
+    <div class="ornament">&middot; &middot; &middot;</div>
+<div class="sec" id="podcasts">
+  <div class="head">
+    <div class="eb" style="color: var(--section-podcasts)">On the Queue</div>
+    <div class="num">&#x2116;&thinsp;05</div>
+  </div>
+  <div class="ribbon" style="background: var(--section-podcasts)"></div>
+</div>
+<div class="pod-list">
+  <div class="pod-row">
+    <div class="pod-play">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">NYT The Daily</div>
+      <div class="pod-title">Trump's Taxpayer-Funded Revenge Plan</div>
+      <div class="pod-meta">2026-05-20T09:50:20Z</div>
+    </div>
+    <div class="pod-dur">25 min</div>
+  </div>
+  <div class="pod-row">
+    <div class="pod-play alt">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">99% Invisible</div>
+      <div class="pod-title">100 Objects #1: The Century Safe</div>
+      <div class="pod-meta">2026-05-19T07:00:00Z</div>
+    </div>
+    <div class="pod-dur">30 min</div>
+  </div>
+  <div class="pod-row">
+    <div class="pod-play">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">Cautionary Tales</div>
+      <div class="pod-title">From Drilled: The Carbon Gold Rush</div>
+      <div class="pod-meta">2026-05-19T04:01:00Z</div>
+    </div>
+    <div class="pod-dur">28 min</div>
+  </div>
+</div>
+
+    <div class="ornament">✦</div>
+
+    <!-- MUSIC SECTION -->
+    <div class="sec" id="music">
+      <div class="head">
+        <div class="eb" style="color: var(--section-music)">Song of the Day</div>
+        <div class="num">&#x2116;&thinsp;06</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-music)"></div>
+    </div>
+    <div class="song">
+  <div class="cover"></div>
+  <div style="flex:1">
+    <div class="song-title">Andante con moto (from Piano Trio No. 2 in E-flat major, Op. 100)</div>
+    <div class="song-artist">Franz Schubert (performed by Beaux Arts Trio) &middot; <em>Schubert: Piano Trios</em> &middot; 1827</div>
+    <div class="song-meta">western classical · chamber music</div>
+  </div>
+  <a href="https://www.youtube.com/results?search_query=Schubert%20Piano%20Trio%20No%202%20Op%20100%20Andante%20con%20moto%20Beaux%20Arts%20Trio" target="_blank" rel="noopener" class="play-lg">&#x25B6;</a>
+</div>
+<p class="song-note">The slow movement of Schubert's final piano trio opens with a cello melody so plainly stated it feels less composed than remembered. The piano answers with the same phrase, slightly altered — a conversation with no argument in it. Schubert wrote this in the last full year of his life, and the melody carries that weight without announcing it; it simply holds still and lets you feel what you bring to it.</p>
+
+    <div class="ornament">· · ·</div>
+
+    <!-- BOOK SECTION -->
+    <div class="sec" id="book">
+      <div class="head">
+        <div class="eb" style="color: var(--section-book)">From the Shelf</div>
+        <div class="num">&#x2116;&thinsp;07</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-book)"></div>
+    </div>
+    <div class="book-card">
+  <div class="book-title"><a href="https://www.goodreads.com/book/show/61539.The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener">The Structure of Scientific Revolutions</a></div>
+  <div class="book-author">Thomas S. Kuhn</div>
+  <p class="book-rationale">Kuhn introduced the concept of the paradigm shift — the idea that science does not progress by steady accumulation but by violent ruptures where entire worldviews collapse and are replaced. For a reader who wants books that challenge how they think, this is the source text: it makes you question whether any field you trust is in the middle of a quiet crisis that nobody has named yet. It sits at the crossroads of history, philosophy, and science, all genres squarely in this reader's orbit.</p>
+  <div class="book-meta">Philosophy of science &middot; 1962</div>
+</div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- QUOTE SECTION -->
+    <div class="sec" id="quote">
+      <div class="head">
+        <div class="eb" style="color: var(--section-quote)">A Thought for Today</div>
+        <div class="num">&#x2116;&thinsp;08</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-quote)"></div>
+    </div>
+    <div class="verse">
+  <div class="tam">சாதி என்பது தொழிலின் பிரிவினை அல்ல; தொழிலாளர்களின் பிரிவினை — பிறப்பால் மனித மதிப்பை நிர்ணயித்து, ஒவ்வொருவரையும் அவர் தேர்ந்தெடுக்காத நிலையில் சிறைப்படுத்தும் படிநிலை.</div>
+  <div class="en">&ldquo;Caste is not a division of labour; it is a division of labourers — a graded hierarchy that assigns human worth by birth and keeps each person locked in a station they never chose.&rdquo;</div>
+  <div class="att">&mdash; Periyar &middot; Paraphrased from Periyar's lectures and writings across the 1930s–1950s, including speeches at Self-Respect Movement conferences; the formulation closely echoes his repeated critique of the varna system as published in Kudi Arasu (குடி அரசு).</div>
+  <div class="verse-meaning">Periyar rejected the standard defence of caste — that it is merely a sensible division of work — by pointing out that it does something far more sinister: it divides people themselves into ranked groups and assigns them a fixed, inherited status. A division of labour would allow anyone to do any job; caste does the opposite, branding a person's worth at birth and making that brand almost impossible to shed. For Periyar, this was not tradition to be respected but an engineered injustice to be dismantled.</div>
+  <div class="verse-relevance">Caste discrimination persists in hiring, marriage, and everyday social life across South Asia and its diaspora; the reflex to defend it as 'just culture' or 'just heritage' is exactly the move Periyar was pre-empting. His insistence that the system is constructed — not natural, not divine — is the prerequisite for believing it can also be undone.</div>
+</div>
+
+    <!-- FOOTER -->
+    <div class="foot">
+      <div class="ornament" style="margin-top: 36px">· · ·</div>
+      <div class="tomorrow">until tomorrow,</div>
+      <div class="next">vidiyal.</div>
+      <div class="colophon">
+        Vidiyal · 2026-05-20 · 6 articles · 4 newsletters · 3 episodes · 1 artwork<br>
+        Art sourced from the Art Institute of Chicago Open Access collection.<br>
+        &copy;&thinsp;2026 &middot; reshamad
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
