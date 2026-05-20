@@ -77,20 +77,26 @@
     .story .read-on { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--sienna); }
     .story-lead::before { height: 3px; }
     .story-lead h2 { font-size: 24px; }
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-    .story-grid .story { margin-bottom: 0; }
+    .news-stack { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .news-item { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); position: relative; overflow: hidden; display: flex; align-items: stretch; }
+    .news-item::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--section-ink, var(--section-world)); }
+    .news-num { font-family: var(--font-display); font-size: 38px; font-weight: 600; color: var(--ink-faint); line-height: 1; width: 54px; flex: none; padding: 18px 0 14px 16px; letter-spacing: -0.03em; opacity: 0.55; }
+    .news-body { flex: 1; padding: 16px 16px 14px 4px; min-width: 0; }
+    .news-body .eb { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--section-ink, var(--ink-3)); margin-bottom: 5px; }
+    .news-body h3 { font-family: var(--font-display); font-size: 19px; line-height: 1.2; color: var(--ink); font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; text-wrap: balance; }
+    .news-body .lede-sm { font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-2); margin: 0 0 9px; }
+    .news-footrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
     .src { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
     .src::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--trust-primary); }
     .src.multi::before { background: var(--trust-multi); }
     .src.opinion::before { background: var(--trust-opinion); }
     .meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
-    .art-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .art-card { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); overflow: hidden; }
-    .art-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; filter: sepia(12%) saturate(90%); }
-    .art-card .art-body { padding: 12px 14px 14px; }
-    .art-card .art-title { font-family: var(--font-display); font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.25; margin: 0 0 3px; }
-    .art-card .art-artist { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-bottom: 6px; }
-    .art-card .art-note { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .art-card-full { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); overflow: hidden; }
+    .art-card-full img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; filter: sepia(10%) saturate(88%); }
+    .art-card-full .art-body { padding: 16px 18px 18px; }
+    .art-card-full .art-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.2; margin: 0 0 4px; }
+    .art-card-full .art-artist { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-bottom: 10px; }
+    .art-card-full .art-note { font-family: var(--font-body); font-size: 14px; color: var(--ink-2); line-height: 1.6; }
     .social-sentiment { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.5; }
     .social-pullquote { background: var(--vellum); border-left: 2px solid var(--sienna); border-radius: 0 4px 4px 0; padding: 14px 16px; margin-bottom: 18px; }
     .social-pullquote .pq-text { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--ink); line-height: 1.4; }
@@ -186,50 +192,65 @@
       </div>
     </div>
 
-    <div class="story-grid">
-      <div class="story" style="--section-ink: var(--section-world)">
-        <div class="eb">AI at Work</div>
-        <h2>Microsoft finds culture — not workers — is the main barrier to AI value</h2>
-        <p class="lede">Based on 20,000 workers across ten countries, Microsoft's 2026 Work Trend Index concludes that organisational factors account for 67% of variance in AI value achieved versus 32% for individual skills. Active agents on the platform grew 15&#x00D7; year-over-year.</p>
-        <div class="footrow">
-          <span class="src primary">Microsoft Work Trend Index</span>
-          <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+    <div class="news-stack">
+      <div class="news-item" style="--section-ink: var(--section-world)">
+        <div class="news-num">02</div>
+        <div class="news-body">
+          <div class="eb">AI at Work</div>
+          <h3>Microsoft finds culture — not workers — is the main barrier to AI value</h3>
+          <p class="lede-sm">Based on 20,000 workers across ten countries, Microsoft's 2026 Work Trend Index concludes that organisational factors account for 67% of variance in AI value achieved versus 32% for individual skills. Active agents on the platform grew 15× year-over-year.</p>
+          <div class="news-footrow">
+            <span class="src primary">Microsoft Work Trend Index</span>
+            <a href="https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+          </div>
         </div>
       </div>
-      <div class="story" style="--section-ink: var(--section-world)">
-        <div class="eb">Health AI Risk</div>
-        <h2>ECRI names AI-driven misdiagnosis the top patient safety threat of 2026</h2>
-        <p class="lede">Physician AI adoption jumped from 38% to 66% in a single year. ECRI warns that automation bias is generating missed and incorrect diagnoses at a pace that has outrun hospital governance frameworks.</p>
-        <div class="footrow">
-          <span class="src primary">ECRI</span>
-          <a href="https://home.ecri.org/blogs/ecri-news/ai-use-in-diagnostic-care-rural-care-access-and-surge-in-preventable-diseases-top-annual-report-of-patient-safety-concerns" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      <div class="news-item" style="--section-ink: var(--section-world)">
+        <div class="news-num">03</div>
+        <div class="news-body">
+          <div class="eb">Health AI Risk</div>
+          <h3>ECRI names AI-driven misdiagnosis the top patient safety threat of 2026</h3>
+          <p class="lede-sm">Physician AI adoption jumped from 38% to 66% in a single year. ECRI warns that automation bias is generating missed and incorrect diagnoses at a pace that has outrun hospital governance frameworks.</p>
+          <div class="news-footrow">
+            <span class="src primary">ECRI</span>
+            <a href="https://home.ecri.org/blogs/ecri-news/ai-use-in-diagnostic-care-rural-care-access-and-surge-in-preventable-diseases-top-annual-report-of-patient-safety-concerns" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+          </div>
         </div>
       </div>
-      <div class="story" style="--section-ink: var(--section-world)">
-        <div class="eb">Enterprise AI</div>
-        <h2>Deloitte: 60% of AI-equipped workers do not use the tools daily despite 50% surge in access</h2>
-        <p class="lede">Access to sanctioned AI grew by 50% in one year, yet daily adoption stayed flat. The culprit, Deloitte argues, is a focus on training for fluency rather than redesigning the work itself — 73% of organisations still hitting adoption walls.</p>
-        <div class="footrow">
-          <span class="src primary">Deloitte</span>
-          <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      <div class="news-item" style="--section-ink: var(--section-world)">
+        <div class="news-num">04</div>
+        <div class="news-body">
+          <div class="eb">Enterprise AI</div>
+          <h3>Deloitte: 60% of AI-equipped workers do not use the tools daily despite 50% surge in access</h3>
+          <p class="lede-sm">Access to sanctioned AI grew by 50% in one year, yet daily adoption stayed flat. The culprit, Deloitte argues, is a focus on training for fluency rather than redesigning the work itself — 73% of organisations still hitting adoption walls.</p>
+          <div class="news-footrow">
+            <span class="src primary">Deloitte</span>
+            <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+          </div>
         </div>
       </div>
-      <div class="story" style="--section-ink: var(--section-world)">
-        <div class="eb">Science Breakthrough</div>
-        <h2>Fat-burning enzyme HSL found in cell nuclei, rewriting 60 years of obesity science</h2>
-        <p class="lede">A Cell Metabolism study discovered that hormone-sensitive lipase — long understood solely as the body's fat-release switch — also lives inside adipocyte nuclei, where it regulates gene activity and accumulates abnormally in obese mice.</p>
-        <div class="footrow">
-          <span class="src primary">Cell Metabolism</span>
-          <a href="https://www.sciencedaily.com/releases/2026/05/260508171123.htm" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      <div class="news-item" style="--section-ink: var(--section-world)">
+        <div class="news-num">05</div>
+        <div class="news-body">
+          <div class="eb">Science Breakthrough</div>
+          <h3>Fat-burning enzyme HSL found in cell nuclei, rewriting 60 years of obesity science</h3>
+          <p class="lede-sm">A Cell Metabolism study discovered that hormone-sensitive lipase — long understood solely as the body's fat-release switch — also lives inside adipocyte nuclei, where it regulates gene activity and accumulates abnormally in obese mice.</p>
+          <div class="news-footrow">
+            <span class="src primary">Cell Metabolism</span>
+            <a href="https://www.sciencedaily.com/releases/2026/05/260508171123.htm" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+          </div>
         </div>
       </div>
-      <div class="story" style="--section-ink: var(--section-world)">
-        <div class="eb">Behavioral Science</div>
-        <h2>AI transparency badges boost decision confidence only when they match your preferences</h2>
-        <p class="lede">The first randomized experiment on AI nudge labels (n=837) finds that "Amazon's Choice"-style badges raise choice confidence substantially — but only when the recommendation already aligns with the user's prior preference, raising automation bias concerns for mismatch conditions.</p>
-        <div class="footrow">
-          <span class="src primary">Intl. Journal of Information Management</span>
-          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167923625001666" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      <div class="news-item" style="--section-ink: var(--section-world)">
+        <div class="news-num">06</div>
+        <div class="news-body">
+          <div class="eb">Behavioral Science</div>
+          <h3>AI transparency badges boost decision confidence only when they match your preferences</h3>
+          <p class="lede-sm">The first randomized experiment on AI nudge labels (n=837) finds that "Amazon's Choice"-style badges raise choice confidence substantially — but only when the recommendation already aligns with the user's prior preference, raising automation bias concerns for mismatch conditions.</p>
+          <div class="news-footrow">
+            <span class="src primary">Intl. Journal of Information Management</span>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167923625001666" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+          </div>
         </div>
       </div>
     </div>
@@ -245,38 +266,12 @@
       <div class="ribbon" style="background: var(--section-art)"></div>
     </div>
 
-    <div class="art-grid">
-      <div class="art-card">
-        <img src="https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/400,/0/default.jpg" alt="A Sunday on La Grande Jatte — 1884" loading="lazy">
-        <div class="art-body">
-          <div class="art-title">A Sunday on La Grande Jatte — 1884</div>
-          <div class="art-artist">Georges Seurat &middot; 1884–86</div>
-          <div class="art-note">Painted over two years from hundreds of studies, the canvas was built using thousands of small dots of pure colour that the eye blends at a distance. The border was added later, also in dots, extending the optical vibration to the very edge. It is simultaneously a precise social document and a formal experiment in how the eye constructs a whole from separate points.</div>
-        </div>
-      </div>
-      <div class="art-card">
-        <img src="https://www.artic.edu/iiif/2/18092196-50ae-3ff1-9205-1b3110e966c3/full/400,/0/default.jpg" alt="Distant View of Niagara Falls" loading="lazy">
-        <div class="art-body">
-          <div class="art-title">Distant View of Niagara Falls</div>
-          <div class="art-artist">Thomas Cole &middot; 1830</div>
-          <div class="art-note">Cole painted this from a distance rather than the falls' edge — rendering them as one element within a wider landscape rather than a spectacle of raw force. Painted in oil on wood panel in 1830, as Cole was establishing the Hudson River School's vocabulary, the small figures at left measure the sublime not by awe alone but by calm comparison.</div>
-        </div>
-      </div>
-      <div class="art-card">
-        <img src="https://www.artic.edu/iiif/2/ace9f8d4-eac7-e5f7-50b2-6a77f7029c9b/full/400,/0/default.jpg" alt="Sky above Clouds IV" loading="lazy">
-        <div class="art-body">
-          <div class="art-title">Sky above Clouds IV</div>
-          <div class="art-artist">Georgia O'Keeffe &middot; 1965</div>
-          <div class="art-note">Painted when O'Keeffe was 77, this is among the largest canvases she ever worked on. The view is aerial — clouds seen from above, receding to a pale horizon. The simplification is complete: no weather, no drama, only the quiet geometry of rounded forms extending without end. The scale required the canvas to be laid flat on the studio floor.</div>
-        </div>
-      </div>
-      <div class="art-card">
-        <img src="https://www.artic.edu/iiif/2/d55b0cfc-0716-d6cd-3b38-5742903ce046/full/400,/0/default.jpg" alt="Mountain Brook" loading="lazy">
-        <div class="art-body">
-          <div class="art-title">Mountain Brook</div>
-          <div class="art-artist">Albert Bierstadt &middot; 1863</div>
-          <div class="art-note">Bierstadt painted mountain subjects with a theatrical light drawn from both Hudson River School tradition and his Düsseldorf Academy training. In this oil on canvas, water carries the light downward while forest closes above, creating an interior that is quiet rather than grand. It was painted in 1863, the same year Bierstadt completed the monumental Rocky Mountains, Lander's Peak.</div>
-        </div>
+    <div class="art-card-full">
+      <img src="https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/400,/0/default.jpg" alt="A Sunday on La Grande Jatte — 1884" loading="lazy">
+      <div class="art-body">
+        <div class="art-title">A Sunday on La Grande Jatte — 1884</div>
+        <div class="art-artist">Georges Seurat &middot; 1884–86</div>
+        <div class="art-note">Painted over two years from hundreds of studies, the canvas was built using thousands of small dots of pure colour that the eye blends at a distance. The border was added later, also in dots, extending the optical vibration to the very edge. It is simultaneously a precise social document and a formal experiment in how the eye constructs a whole from separate points.</div>
       </div>
     </div>
 
