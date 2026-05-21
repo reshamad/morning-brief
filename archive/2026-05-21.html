@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vidiyal — THURSDAY, MAY 21, 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+Tamil:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* === VIDIYAL DESIGN TOKENS === */
+    :root {
+      --paper:        #f4ede0;
+      --paper-2:      #efe6d4;
+      --paper-deep:   #e8dcc4;
+      --vellum:       #faf5ea;
+      --ink:          #2d2418;
+      --ink-2:        #4a3d2b;
+      --ink-3:        #7a6a52;
+      --ink-faint:    #b0a085;
+      --sienna:       #a8421f;
+      --sienna-deep:  #823217;
+      --ochre:        #d4892c;
+      --sage:         #6b7a5c;
+      --indigo-ink:   #3a4a5c;
+      --umber:        #5a3a1a;
+      --trust-primary:  #4a6b4a;
+      --trust-multi:    #6b7a5c;
+      --trust-opinion:  #a8742a;
+      --section-world:    var(--indigo-ink);
+      --section-india:    var(--sage);
+      --section-podcasts: var(--umber);
+      --section-reddit:   var(--sienna);
+      --section-music:    var(--ochre);
+      --section-word:     var(--ochre);
+      --section-verse:    var(--umber);
+      --section-prompt:   var(--sage);
+      --section-art:      #7a5c3a;
+      --section-substack: var(--indigo-ink);
+      --section-book:     var(--sage);
+      --section-quote:    var(--umber);
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-body:    "Source Serif 4", Georgia, serif;
+      --font-italic:  "EB Garamond", "Source Serif 4", Georgia, serif;
+      --font-hand:    "Caveat", cursive;
+      --font-tamil:   "Noto Serif Tamil", Georgia, serif;
+      --shadow-page:   0 1px 0 #e2d4b8, 0 2px 8px rgba(45,36,24,0.04);
+      --shadow-lifted: 0 2px 0 #d8c8a8, 0 8px 24px rgba(45,36,24,0.08);
+      --page-max: 440px;
+      --page-pad: 22px;
+    }
+
+    /* === BASE === */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: var(--sienna); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* === LAYOUT === */
+    .app { max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-pad) 80px; }
+
+    /* === MASTHEAD === */
+    .mast { padding: 28px 0 18px; border-bottom: 2px solid var(--ink); position: relative; margin-bottom: 0; }
+    .mast .greet { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); letter-spacing: 0.01em; }
+    .mast .wm { font-family: var(--font-display); font-weight: 500; font-size: 64px; line-height: 0.95; letter-spacing: -0.02em; color: var(--ink); margin-top: 4px; }
+    .mast .date { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink-2); margin-top: 8px; }
+    .mast .edition { position: absolute; top: 32px; right: 0; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); text-align: right; line-height: 1.35; }
+
+    /* === COVER STAND === */
+    .cover-stand { padding: 22px 0 8px; border-bottom: 1px solid #d8cab0; }
+    .cover-headline { font-family: var(--font-display); font-size: 26px; font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 10px; letter-spacing: -0.005em; text-wrap: balance; }
+    .cover-standfirst { font-family: var(--font-italic); font-style: italic; font-size: 16px; color: var(--ink-2); line-height: 1.5; margin: 0 0 10px; }
+    .tally { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+
+    /* === ORNAMENT === */
+    .ornament { text-align: center; font-family: var(--font-display); color: var(--ink-faint); font-size: 18px; letter-spacing: 0.6em; margin: 32px 0; }
+
+    /* === SECTION HEADER === */
+    .sec { margin-top: 44px; }
+    .sec .head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 10px; }
+    .sec .head .eb { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+    .sec .head .num { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
+    .sec .ribbon { height: 2px; margin-bottom: 18px; }
+    .sec .title { font-family: var(--font-display); font-size: 28px; font-weight: 500; line-height: 1.1; margin: 0 0 14px; color: var(--ink); letter-spacing: -0.005em; }
+    .sec .standfirst { font-family: var(--font-italic); font-style: italic; font-size: 16px; color: var(--ink-2); line-height: 1.5; margin: 0 0 22px; text-wrap: pretty; }
+
+    /* === STORY CARD === */
+    .story { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); padding: 16px 18px 14px; position: relative; overflow: hidden; margin-bottom: 14px; }
+    .story::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--section-ink, var(--ink)); }
+    .story .eb { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--section-ink, var(--ink-3)); margin-bottom: 8px; }
+    .story h2 { font-family: var(--font-display); font-size: 21px; line-height: 1.18; color: var(--ink); font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; text-wrap: balance; }
+    .story .lede { font-family: var(--font-body); font-size: 15px; line-height: 1.5; color: var(--ink-2); margin: 0 0 10px; }
+    .story .deeper { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 8px 0 12px; padding-top: 12px; border-top: 1px solid var(--ink-faint); }
+    .story .deeper p { margin: 0 0 10px; }
+    .story .deeper p:last-child { margin-bottom: 0; }
+    .story .footrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .story .srcs { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .story .read-on { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--sienna); }
+    .story-lead::before { height: 3px; }
+    .story-lead h2 { font-size: 24px; }
+    /* === NEWS STACK (replaces 2-col grid) === */
+    .news-stack { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .news-item { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); position: relative; overflow: hidden; display: flex; align-items: stretch; }
+    .news-item::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--section-ink, var(--section-world)); }
+    .news-num { font-family: var(--font-display); font-size: 38px; font-weight: 600; color: var(--ink-faint); line-height: 1; width: 54px; flex: none; padding: 18px 0 14px 16px; letter-spacing: -0.03em; opacity: 0.55; }
+    .news-body { flex: 1; padding: 16px 16px 14px 4px; min-width: 0; }
+    .news-body .eb { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: var(--section-ink, var(--ink-3)); margin-bottom: 5px; }
+    .news-body h3 { font-family: var(--font-display); font-size: 19px; line-height: 1.2; color: var(--ink); font-weight: 500; margin: 0 0 6px; letter-spacing: -0.005em; text-wrap: balance; }
+    .news-body .lede-sm { font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--ink-2); margin: 0 0 9px; }
+    .news-footrow { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .src { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); }
+    .src::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--trust-primary); }
+    .src.multi::before { background: var(--trust-multi); }
+    .src.opinion::before { background: var(--trust-opinion); }
+    .meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+
+    /* === ART CARD (single featured work) === */
+    .art-card-full { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); overflow: hidden; }
+    .art-card-full img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; filter: sepia(10%) saturate(88%); }
+    .art-card-full .art-body { padding: 16px 18px 18px; }
+    .art-card-full .art-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.2; margin: 0 0 4px; }
+    .art-card-full .art-artist { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-bottom: 10px; }
+    .art-card-full .art-note { font-family: var(--font-body); font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+    /* === SOCIAL / REDDIT === */
+    .social-sentiment { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.5; }
+    .social-pullquote { background: var(--vellum); border-left: 2px solid var(--sienna); border-radius: 0 4px 4px 0; padding: 14px 16px; margin-bottom: 18px; }
+    .social-pullquote .pq-text { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--ink); line-height: 1.4; }
+    .social-pullquote .pq-attr { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+    .thread-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--ink-faint); }
+    .thread-row:last-child { border-bottom: 0; }
+    .thread-source { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--sienna); flex: none; width: 96px; padding-top: 2px; }
+    .thread-body { flex: 1; }
+    .thread-title { font-family: var(--font-display); font-size: 16px; color: var(--ink); line-height: 1.25; font-weight: 500; text-wrap: balance; }
+    .thread-pulse { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 4px; line-height: 1.45; }
+
+    /* === SUBSTACK / READING QUEUE === */
+    .feed-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); align-items: flex-start; }
+    .feed-row:last-child { border-bottom: 0; }
+    .feed-pub { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--indigo-ink); flex: none; width: 100px; padding-top: 3px; }
+    .feed-body { flex: 1; }
+    .feed-title { font-family: var(--font-display); font-size: 17px; color: var(--ink); font-weight: 500; line-height: 1.2; margin-bottom: 3px; }
+    .feed-lede { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .feed-meta { font-family: var(--font-italic); font-style: italic; font-size: 11px; color: var(--ink-3); margin-top: 4px; }
+
+    /* === PODCASTS === */
+    .pod-list { display: flex; flex-direction: column; }
+    .pod-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--ink-faint); }
+    .pod-row:last-child { border-bottom: 0; }
+    .pod-play { width: 40px; height: 40px; border-radius: 50%; background: var(--umber); color: var(--vellum); display: flex; align-items: center; justify-content: center; flex: none; font-size: 13px; }
+    .pod-play.alt { background: var(--ink); }
+    .pod-show { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); letter-spacing: 0.02em; }
+    .pod-title { font-family: var(--font-display); font-size: 17px; color: var(--ink); font-weight: 500; line-height: 1.2; margin-top: 1px; }
+    .pod-meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+    .pod-dur { font-family: var(--font-body); font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em; white-space: nowrap; }
+
+    /* === MUSIC === */
+    .song { display: flex; gap: 14px; align-items: center; background: var(--paper-2); border-radius: 8px; padding: 14px; box-shadow: var(--shadow-page); }
+    .song .cover { width: 68px; height: 68px; border-radius: 4px; flex: none; background: linear-gradient(135deg, #c89a4a, #8b3a2a 60%, #5a3a1a); position: relative; }
+    .song .cover::after { content: "வி"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-tamil); font-size: 28px; color: rgba(250,245,234,0.92); }
+    .song .song-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink); line-height: 1.15; }
+    .song .song-title .tam { font-family: var(--font-tamil); }
+    .song .song-artist { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+    .song .song-meta { font-family: var(--font-body); font-size: 10px; color: var(--ink-3); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 6px; }
+    .song .play-lg { width: 44px; height: 44px; border-radius: 50%; background: var(--ochre); color: var(--vellum); display: flex; align-items: center; justify-content: center; flex: none; }
+    .song-note { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.55; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--ink-faint); }
+
+    /* === BOOK === */
+    .book-card { background: var(--vellum); border-radius: 8px; padding: 20px; box-shadow: var(--shadow-page); border-left: 2px solid var(--sage); }
+    .book-title { font-family: var(--font-display); font-size: 24px; font-weight: 500; line-height: 1.15; color: var(--ink); margin: 0 0 4px; }
+    .book-author { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); margin-bottom: 12px; }
+    .book-rationale { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+    .book-meta { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+
+    /* === QUOTE (Periyar) === */
+    .verse { background: var(--vellum); border-radius: 8px; padding: 24px 22px; box-shadow: var(--shadow-page); text-align: center; border-top: 1px solid var(--ink-faint); border-bottom: 1px solid var(--ink-faint); }
+    .verse .tam { font-family: var(--font-tamil); font-size: 18px; color: var(--ink); line-height: 1.7; }
+    .verse .en { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink); line-height: 1.45; margin-top: 12px; }
+    .verse .att { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--ink-3); margin-top: 12px; letter-spacing: 0.02em; }
+    .verse-meaning { font-family: var(--font-body); font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-top: 16px; padding-top: 14px; border-top: 1px solid #d8cab0; text-align: left; }
+    .verse-relevance { font-family: var(--font-italic); font-style: italic; font-size: 14px; color: var(--ink-3); margin-top: 10px; line-height: 1.5; text-align: left; }
+
+    /* === HIKE === */
+    .hike-card { background: var(--paper-2); border-radius: 8px; box-shadow: var(--shadow-page); overflow: hidden; }
+    .hike-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; filter: sepia(8%) saturate(92%); }
+    .hike-img-placeholder { width: 100%; aspect-ratio: 16/9; background: linear-gradient(160deg, #7a9a6a 0%, #4a6a5a 45%, #3a4a3a 100%); display: flex; align-items: center; justify-content: center; }
+    .hike-img-placeholder span { font-family: var(--font-display); font-size: 48px; color: rgba(250,245,234,0.4); }
+    .hike-body { padding: 16px 18px 20px; }
+    .hike-name { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--ink); line-height: 1.15; margin: 0 0 3px; }
+    .hike-region { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); margin-bottom: 12px; }
+    .hike-stats { display: flex; gap: 0; margin-bottom: 14px; border-top: 1px solid var(--ink-faint); border-bottom: 1px solid var(--ink-faint); padding: 10px 0; }
+    .hike-stat { flex: 1; text-align: center; }
+    .hike-stat + .hike-stat { border-left: 1px solid var(--ink-faint); }
+    .hike-stat .sv { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: var(--ink); line-height: 1; }
+    .hike-stat .sl { font-family: var(--font-italic); font-style: italic; font-size: 10px; color: var(--ink-3); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+    .hike-visual { font-family: var(--font-italic); font-style: italic; font-size: 15px; color: var(--ink-2); line-height: 1.55; margin-bottom: 10px; border-left: 2px solid var(--sage); padding-left: 12px; }
+    .hike-story { font-family: var(--font-body); font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 12px; }
+    .hike-why { font-family: var(--font-italic); font-style: italic; font-size: 13px; color: var(--ink-3); line-height: 1.5; margin-bottom: 12px; }
+    .hike-logistics { margin: 0 0 14px; padding: 0 0 0 16px; }
+    .hike-logistics li { font-family: var(--font-body); font-size: 13px; color: var(--ink-2); line-height: 1.55; margin-bottom: 4px; }
+    .hike-foot { display: flex; justify-content: space-between; align-items: center; }
+    .hike-season { font-family: var(--font-italic); font-style: italic; font-size: 12px; color: var(--sage); }
+
+    /* === FOOTER === */
+    .foot { text-align: center; padding-top: 40px; }
+    .foot .tomorrow { font-family: var(--font-display); font-style: italic; font-size: 16px; color: var(--ink-3); }
+    .foot .next { font-family: var(--font-display); font-size: 22px; color: var(--ink); margin-top: 4px; font-weight: 500; }
+    .colophon { font-family: var(--font-italic); font-style: italic; font-size: 11px; color: var(--ink-3); margin-top: 18px; line-height: 1.8; letter-spacing: 0.02em; }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <!-- MASTHEAD -->
+    <div class="mast">
+      <div class="greet">Good morning.</div>
+      <div class="wm">Vidiyal</div>
+      <div class="date">Thursday, May 21, 2026</div>
+      <div class="edition">No. 21<br>7:00 am</div>
+    </div>
+
+    <!-- COVER STAND -->
+    <div class="cover-stand">
+      <h1 class="cover-headline">The gap between what AI can do and what actually works</h1>
+      <p class="cover-standfirst">Two independent studies — from Stanford-Harvard and the WEF — land on the same diagnosis today: AI’s failure mode is not the technology but the space between model performance and real workflow deployment. Alongside them: a CRISPR advance that turns silenced genes back on without cutting DNA, and Periyar on women’s freedom as the truest measure of social progress.</p>
+      <div class="tally">6 articles · 3 newsletters · 4 episodes · 1 song · 1 book · 1 trail</div>
+    </div>
+
+    <div class="ornament">✦</div>
+
+    <!-- NEWS SECTION -->
+    <div class="sec" id="news">
+      <div class="head">
+        <div class="eb" style="color: var(--section-world)">News &amp; Analysis</div>
+        <div class="num">&#x2116;&thinsp;01</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-world)"></div>
+    </div>
+    <div class="story story-lead" style="--section-ink: var(--section-world)">
+  <div class="eb">AI · HEALTH</div>
+  <h2>Stanford-Harvard audit of clinical AI finds a 'deployment gap' that algorithms alone cannot close</h2>
+  <p class="lede">The first State of Clinical AI report, from the Stanford-Harvard ARISE network, synthesises hundreds of studies and delivers a clear verdict: AI performs well in controlled trials but breaks down when it meets real hospital workflows.</p>
+  <div class="deeper"><p>The ARISE report distinguishes carefully between benchmark performance and real-world utility. Prediction models that flag deteriorating patients or assist radiologists reading mammograms show the strongest results, but even these tools see adoption collapse to near-zero in busy ICUs and emergency departments if they require physicians to leave their normal EHR workflow — even briefly. The authors call this the 'deployment gap' and argue it is now the field's central unsolved problem.</p>
+<p>A recurring finding is over-reliance: clinicians in multiple studies followed incorrect model recommendations even when the errors were detectable. The report also flags 'brittleness' — models that perform at superhuman levels on benchmark tasks but cannot reliably flag their own uncertainty in edge cases. These failure modes are qualitatively different from simple low accuracy and are harder to catch in pre-deployment validation.</p>
+<p>The report's headline conclusion is that the era of simply building smarter algorithms is over. Future clinical AI must be evaluated on seamless integration with medical workflows, not just accuracy scores. The authors recommend that hospitals track AI usage rates in production — not just model performance — as the primary adoption metric going forward.</p></div>
+  <div class="footrow">
+    <div class="srcs"><span class="src multi">Stanford Medicine / ARISE</span><span class="meta">4 months ago · 6 min read</span></div>
+    <a href="https://medicine.stanford.edu/news/current-news/standard-news/clinical-ai-has-boomed.html" class="read-on" target="_blank" rel="noopener">Read on &#x2192;</a>
+  </div>
+</div>
+    <div class="news-stack">
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">02</div>
+    <div class="news-body">
+      <div class="eb">KNOWLEDGE WORK · AI</div>
+      <h3>The 'jagged frontier' paper, now in Organization Science, confirms AI lifts consultants on some tasks and degrades performance on others</h3>
+      <p class="lede-sm">A landmark field experiment with 758 consultants at BCG — now formally published in Organization Science — provides the most rigorous evidence yet that AI's impact on knowledge work is highly task-dependent rather than uniformly positive.</p>
+      <div class="news-footrow">
+        <span class="src primary">Organization Science / HBS</span>
+        <a href="https://pubsonline.informs.org/doi/10.1287/orsc.2025.21838" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">03</div>
+    <div class="news-body">
+      <div class="eb">GLOBAL ECONOMICS</div>
+      <h3>WTO's March 2026 trade outlook: AI goods now drive 42% of global trade growth as merchandise volumes slow sharply</h3>
+      <p class="lede-sm">The WTO cuts its merchandise trade growth forecast to 1.9% for 2026 — less than half last year's 4.6% — while revealing that AI-enabling hardware has surged 22% to $4.18 trillion, accounting for nearly half of all trade expansion.</p>
+      <div class="news-footrow">
+        <span class="src primary">WTO</span>
+        <a href="https://www.wto.org/english/news_e/news26_e/stat_19mar26_329_e.htm" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">04</div>
+    <div class="news-body">
+      <div class="eb">SCIENCE · GENETICS</div>
+      <h3>CRISPR technique turns genes back on without cutting DNA, resolving a decades-long debate about gene silencing</h3>
+      <p class="lede-sm">Researchers at UNSW Sydney and St Jude Children's Research Hospital have shown that removing methyl chemical tags from DNA — without any cuts — reactivates silenced genes, settling the question of whether methylation causes gene suppression or merely correlates with it.</p>
+      <div class="news-footrow">
+        <span class="src primary">ScienceDaily / UNSW Sydney</span>
+        <a href="https://www.sciencedaily.com/releases/2026/01/260104202813.htm" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">05</div>
+    <div class="news-body">
+      <div class="eb">AI · OPERATIONS</div>
+      <h3>WEF survey of 20 leading tech companies finds workflow redesign, not tool adoption, explains the AI productivity gap</h3>
+      <p class="lede-sm">The World Economic Forum's January 2026 report on AI at work concludes that the gap between AI hype and results is almost entirely explained by whether companies rebuilt their workflows around AI or simply layered new tools onto existing processes.</p>
+      <div class="news-footrow">
+        <span class="src multi">World Economic Forum</span>
+        <a href="https://www.weforum.org/stories/2026/01/ai-at-work-insights/" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+  <div class="news-item" style="--section-ink: var(--section-world)">
+    <div class="news-num">06</div>
+    <div class="news-body">
+      <div class="eb">BEHAVIORAL SCIENCE</div>
+      <h3>Analysis of clinical consultations finds behaviour change techniques and genuine shared decision-making rarely coexist</h3>
+      <p class="lede-sm">A systematic study of recorded clinical trial recruitment consultations finds that doctors routinely deploy nudges and framing effects, but genuine shared decision-making — where patients reach their own informed conclusion — is rare and seldom deliberate.</p>
+      <div class="news-footrow">
+        <span class="src primary">PMC / BMC Medical Education</span>
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12642203/" class="read-on" target="_blank" rel="noopener">&#x2192;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- ART SECTION -->
+    <div class="sec" id="art">
+      <div class="head">
+        <div class="eb" style="color: var(--section-art)">Art of the Day</div>
+        <div class="num">&#x2116;&thinsp;02</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-art)"></div>
+    </div>
+    <div class="art-card-full">
+  <img src="https://www.artic.edu/iiif/2/4a04138f-43d8-cd9f-5ac4-478cd8828210/full/400,/0/default.jpg" alt="Trompe-l’Œil Still Life with a Flower Garland and a Curtain" loading="lazy">
+  <div class="art-body">
+    <div class="art-title">Trompe-l’Œil Still Life with a Flower Garland and a Curtain</div>
+    <div class="art-artist">Adriaen van der Spelt &amp; Frans van Mieris &middot; 1658</div>
+    <div class="art-note">Two Dutch masters collaborated on this small panel, each contributing what they did best: van der Spelt painted the flower garland, van Mieris the stone cartouche behind it. The curtain — blue-grey silk painted across one corner of the composition — is pure fiction, a piece of cloth that exists only in paint but is rendered with enough weight and fold to make you want to pull it aside. The panel won a prize from the Leiden painters’ guild the year it was finished, suggesting contemporaries already understood the wit: a painting of a curtain hiding a painting.</div>
+  </div>
+</div>
+
+    <div class="ornament">✦</div>
+
+    <!-- SOCIAL SECTION -->
+    <div class="sec" id="social">
+      <div class="head">
+        <div class="eb" style="color: var(--section-reddit)">Pulse</div>
+        <div class="num">&#x2116;&thinsp;03</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-reddit)"></div>
+    </div>
+    <p class="social-sentiment">The mood today is one of contested precedents — the Hormuz standoff is forcing countries to pick sides in ways the UN cannot resolve, while OpenAI's trillion-dollar IPO ambitions are making AI feel less like a technology story and more like a financial one. Underneath both: questions about who sets the rules when incumbents move faster than institutions.</p>
+    <div class="social-pullquote"><div class="pq-text">&ldquo;China and the US have traded the top spot in AI model performance multiple times since early 2025. The lead, if it exists, is now measured in weeks.&rdquo;</div><div class="pq-attr">&mdash; Stanford HAI AI Index 2026 (hai.stanford.edu)</div></div>
+    <div class="thread-row">
+  <div class="thread-source">r/artificial</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://fortune.com/2026/03/13/elon-musk-morgan-stanley-ai-leap-2026/" target="_blank" rel="noopener">OpenAI files for $1 trillion IPO — the largest in history — days after SpaceX's $80B filing</a></div>
+    <div class="thread-pulse">OpenAI is targeting a September debut at a trillion-dollar valuation, with its self-serve Ads Manager (launched this week inside ChatGPT) as a signal of the revenue model it is pitching to public markets. r/artificial is split on whether this is the peak of AI hype or the beginning of a new phase where AI companies are valued like media platforms.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">r/geopolitics</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://commonslibrary.parliament.uk/research-briefings/cbp-10636/" target="_blank" rel="noopener">UK deploys warship and aircraft to Hormuz as China and Russia veto UN navigation resolution</a></div>
+    <div class="thread-pulse">The UK joined an international defensive escort mission this week while the US-brokered ceasefire holds but the strait remains at ~5% of pre-conflict vessel traffic. The China/Russia Security Council veto has fractured any hope of a multilateral framework — the emerging picture is two competing blocs managing the same chokepoint.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">r/artificial</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report" target="_blank" rel="noopener">Stanford AI Index 2026: GenAI hit 53% population adoption in 3 years — faster than the PC or the internet</a></div>
+    <div class="thread-pulse">The 2026 Stanford AI Index reports generative AI reached 53% adoption faster than any prior general-purpose technology, but with steep GDP-per-capita correlation — Singapore at 61%, UAE at 54%, the US ranked 24th at 28.3%. The gap between headline adoption numbers and depth-of-use is generating the most discussion.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">@benedictevans</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://www.ben-evans.com/presentations" target="_blank" rel="noopener">Benedict Evans: AI models are commoditising — 'the lead, if it exists, is measured in weeks'</a></div>
+    <div class="thread-pulse">Evans' spring 2026 macro deck continues to circulate: the core argument is that as model prices race toward zero and US-China performance parity tightens, proprietary workflow integration and distribution become the only durable moats. The framing of AI as future invisible infrastructure — not a salient product — is shaping how enterprise buyers are rethinking vendor lock-in.</div>
+  </div>
+</div>
+<div class="thread-row">
+  <div class="thread-source">@ourworldindata</div>
+  <div class="thread-body">
+    <div class="thread-title"><a href="https://ourworldindata.org/population-simulation-tool" target="_blank" rel="noopener">Population simulator: even extreme migration can't save South Korea without a fertility rebound</a></div>
+    <div class="thread-pulse">Our World in Data's interactive population tool (published May 18) continues to drive discussion — the South Korea scenario has become a reference point in debates about demographic policy. Users dialling in maximum feasible migration still see population decline without fertility rising toward 2.3, making the maths of demographic recovery strikingly legible.</div>
+  </div>
+</div>
+
+
+    <div class="ornament">· · ·</div>
+
+    <!-- SUBSTACK SECTION -->
+    <div class="sec" id="substack">
+      <div class="head">
+        <div class="eb" style="color: var(--section-substack)">Reading Queue</div>
+        <div class="num">&#x2116;&thinsp;04</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-substack)"></div>
+    </div>
+    <div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/trump-approval-ratings-nate-silver-bulletin" target="_blank" rel="noopener">How popular is Donald Trump?</a></div>
+    <div class="feed-lede">Trump's net approval has hit a second-term low of -20.1, with his handling of inflation dropping to -41.8. The Silver Bulletin tracks the president's approval ratings across multiple polls.</div>
+    <div class="feed-meta">2026-05-21T14:26:07Z &middot; 3 min</div>
+  </div>
+</div>
+<div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/iran-war-polls-popularity-approval" target="_blank" rel="noopener">How popular is the Iran War?</a></div>
+    <div class="feed-lede">Nearly 60 percent of Americans now oppose the Iran War, up significantly from initial opposition levels. The Silver Bulletin provides a continuous polling average on public support for the conflict.</div>
+    <div class="feed-meta">2026-05-21T14:25:07Z &middot; 3 min</div>
+  </div>
+</div>
+<div class="feed-row">
+  <div class="feed-pub">Silver Bulletin</div>
+  <div class="feed-body">
+    <div class="feed-title"><a href="https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls" target="_blank" rel="noopener">Who's ahead on the generic congressional ballot?</a></div>
+    <div class="feed-lede">Democrats hold a D +6.6 advantage on the generic ballot, their strongest position of the cycle. This environment mirrors 2018 conditions when Democrats gained 40 House seats.</div>
+    <div class="feed-meta">2026-05-21T14:24:31Z &middot; 3 min</div>
+  </div>
+</div>
+
+
+    <div class="ornament">&middot; &middot; &middot;</div>
+<div class="sec" id="podcasts">
+  <div class="head">
+    <div class="eb" style="color: var(--section-podcasts)">On the Queue</div>
+    <div class="num">&#x2116;&thinsp;05</div>
+  </div>
+  <div class="ribbon" style="background: var(--section-podcasts)"></div>
+</div>
+<div class="pod-list">
+  <div class="pod-row">
+    <div class="pod-play">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">NYT The Daily</div>
+      <div class="pod-title">Why the U.S. Just Indicted Cuba's Former President</div>
+      <div class="pod-meta">2026-05-21T09:45:00Z</div>
+    </div>
+    <div class="pod-dur">29 min</div>
+  </div>
+  <div class="pod-row">
+    <div class="pod-play alt">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">Economics of Everyday Things</div>
+      <div class="pod-title">Pet Movers</div>
+      <div class="pod-meta">2026-05-21T00:00:00Z</div>
+    </div>
+    <div class="pod-dur">16 min</div>
+  </div>
+  <div class="pod-row">
+    <div class="pod-play">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">99% Invisible</div>
+      <div class="pod-title">100 Objects #1: The Century Safe</div>
+      <div class="pod-meta">2026-05-19T07:00:00Z</div>
+    </div>
+    <div class="pod-dur">30 min</div>
+  </div>
+  <div class="pod-row">
+    <div class="pod-play alt">&#x25B6;</div>
+    <div style="flex:1">
+      <div class="pod-show">Cautionary Tales</div>
+      <div class="pod-title">From Drilled: The Carbon Gold Rush</div>
+      <div class="pod-meta">2026-05-19T04:01:00Z</div>
+    </div>
+    <div class="pod-dur">28 min</div>
+  </div>
+</div>
+
+    <div class="ornament">✦</div>
+
+    <!-- MUSIC SECTION -->
+    <div class="sec" id="music">
+      <div class="head">
+        <div class="eb" style="color: var(--section-music)">Song of the Day</div>
+        <div class="num">&#x2116;&thinsp;06</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-music)"></div>
+    </div>
+    <div class="song">
+  <div class="cover"></div>
+  <div style="flex:1">
+    <div class="song-title">राग भैरवी</div>
+    <div class="song-artist">Ravi Shankar &middot; <em>In Concert 1972 (Royal Festival Hall)</em> &middot; 1972</div>
+    <div class="song-meta">indian instrumental &middot; raga &middot; Ragam: Bhairavi</div>
+  </div>
+  <a href="https://www.youtube.com/results?search_query=Ravi%20Shankar%20Raga%20Bhairavi%20Royal%20Festival%20Hall%201972" target="_blank" rel="noopener" class="play-lg">&#x25B6;</a>
+</div>
+<p class="song-note">Bhairavi is the raga of parting — traditionally the last raga played at a concert, carrying a quality of tender finality. Ravi Shankar's live rendition from the Royal Festival Hall is unhurried, the sitar tracing each phrase with the kind of care that only happens when a musician knows the morning will ask something of you. The melody doesn't resolve so much as settle.</p>
+
+    <div class="ornament">· · ·</div>
+
+    <!-- BOOK SECTION -->
+    <div class="sec" id="book">
+      <div class="head">
+        <div class="eb" style="color: var(--section-book)">From the Shelf</div>
+        <div class="num">&#x2116;&thinsp;07</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-book)"></div>
+    </div>
+    <div class="book-card">
+  <div class="book-title"><a href="https://www.goodreads.com/book/show/1774836.The_Palace_of_Illusions" target="_blank" rel="noopener">The Palace of Illusions</a></div>
+  <div class="book-author">Chitra Banerjee Divakaruni</div>
+  <p class="book-rationale">A retelling of the Mahabharata entirely through Draupadi's eyes — a character the original epic treats as catalyst rather than subject. Divakaruni forces a reckoning with how canonical stories are shaped by whose voice is centred: the war, the dharma debates, the dice game all look different when the person most wronged by them is the narrator. For a reader who enjoyed Kaikeyi and is drawn to Indian mythology retellings, this is the natural companion — it asks the same question Sudha Murty and Kavya Mandana ask, but with sharper political edge.</p>
+  <div class="book-meta">Indian mythology &middot; 2008</div>
+</div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- QUOTE SECTION -->
+    <div class="sec" id="quote">
+      <div class="head">
+        <div class="eb" style="color: var(--section-quote)">A Thought for Today</div>
+        <div class="num">&#x2116;&thinsp;08</div>
+      </div>
+      <div class="ribbon" style="background: var(--section-quote)"></div>
+    </div>
+    <div class="verse">
+  <div class="tam">பெண்கள் ஆண்களுக்கு அடிமைகளாக இருக்கக் கூடாது. அவர்கள் சுயமரியாதையுடன் சுதந்திரமாக வாழ வேண்டும். பெண்கள் அடிமைத்தனத்திலிருந்து விடுபட்டால்தான் சமூகம் முன்னேறும்.</div>
+  <div class="en">&ldquo;Women should not be slaves to men. They should have self-respect and should be able to live independently. Only when women are free from subordination will society progress.&rdquo;</div>
+  <div class="att">&mdash; Periyar &middot; Drawn from Periyar's speeches and writings in the Kudi Arasu journal and Self-Respect Movement publications, 1920s–1930s; the argument runs throughout works such as 'Penn Yean Adimaiyanal' (Why Woman Became a Slave).</div>
+  <div class="verse-meaning">Periyar argued that the subjugation of women is not natural or inevitable — it was engineered through religion, custom, and law to keep women economically dependent and socially invisible. He insisted that a person who cannot own their own life cannot truly think freely, and that any movement for human dignity that excluded half the population was building on sand.</div>
+  <div class="verse-relevance">At a time when women's autonomy — over their bodies, labour, and choices — remains contested in law and daily life, Periyar's framing is pointed: women's freedom is not a secondary cause to be addressed after other struggles; it is the measure of whether a society has progressed at all.</div>
+</div>
+
+    <div class="ornament">&#x2766;</div>
+
+    <!-- HIKE SECTION -->
+    <div class="sec" id="hike">
+      <div class="head">
+        <div class="eb" style="color: var(--sage)">Trail of the Day</div>
+        <div class="num">&#x2116;&thinsp;09</div>
+      </div>
+      <div class="ribbon" style="background: var(--sage)"></div>
+    </div>
+    <div class="hike-card">
+  <img class="hike-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Sangla_Kanda_-_Rupin_Pass.jpg/1280px-Sangla_Kanda_-_Rupin_Pass.jpg" alt="Rupin Pass Trek" loading="lazy">
+  <div class="hike-body">
+    <div class="hike-name">Rupin Pass Trek</div>
+    <div class="hike-region">Uttarakhand–Himachal Pradesh, India</div>
+    <div class="hike-stats">
+      <div class="hike-stat"><div class="sv">52 km</div><div class="sl">Distance</div></div>
+      <div class="hike-stat"><div class="sv">+1800 m</div><div class="sl">Elevation</div></div>
+      <div class="hike-stat"><div class="sv">7 days</div><div class="sl">Duration</div></div>
+    </div>
+    <div class="hike-visual">&ldquo;Standing on the snowfield below the pass, the Rupin waterfall tumbles down a cliff face directly opposite you, framed by two hanging valleys — it looks like a scene invented by someone who had never been forced to be plausible.&rdquo;</div>
+    <div class="hike-story">The Rupin valley was a grazing corridor long before it was a trekking destination — Gujjar and Kinnauri shepherds moved livestock over this pass between the warmer Uttarakhand foothills and the high Kinnaur pastures each season, a rhythm that still continues alongside the trekking groups. The trek's centrepiece, the hanging valley with the waterfall visible from across the snowfield, sits at around 13,000 ft and was largely unknown outside regional shepherds until India Hikes began running it in the early 2010s; within a few years it had become the single most photographed frame in Indian recreational trekking.</div>
+    <div class="hike-why">Late May is exactly the window when the Rupin Pass route sheds its most dangerous winter ice but still holds deep snowfields — the combination that makes the crossing both feasible and spectacular. If you are planning any high-altitude Himalayan trek for early summer, this is the one to book right now before the June batches fill. The route crosses from Uttarakhand into Himachal in a single long pass day, and that geographic punctuation is part of the point.</div>
+    <ul class="hike-logistics"><li>Base access: fly or drive to Dehradun, then drive to Dhaula village (Uttarkashi district) — roughly 8–9 hours from Dehradun; the trail begins here</li><li>The trek crosses into Himachal Pradesh on pass day and exits at Sangla in Kinnaur, so carry ID; arrange return transport from Sangla (Rampur–Shimla highway) in advance</li><li>Snow on the upper reaches is significant in late May — microspikes or crampons and trekking poles are essential, not optional; book with a registered operator (India Hikes runs fixed departures)</li></ul>
+    <div class="hike-foot">
+      <div class="hike-season">Best season: May–June, September–October</div>
+      <a href="https://www.youtube.com/results?search_query=Rupin%20Pass%20trek%20full%20trail%204K%20snowfield%20waterfall%20India%20Hikes" class="read-on" target="_blank" rel="noopener">Watch trail &#x2192;</a>
+    </div>
+  </div>
+</div>
+
+    <!-- FOOTER -->
+    <div class="foot">
+      <div class="ornament" style="margin-top: 36px">· · ·</div>
+      <div class="tomorrow">until tomorrow,</div>
+      <div class="next">vidiyal.</div>
+      <div class="colophon">
+        Vidiyal · 2026-05-21 · 6 articles · 3 newsletters · 4 episodes · 1 artwork · 1 hike<br>
+        Art sourced from the Art Institute of Chicago Open Access collection.<br>
+        &copy;&thinsp;2026 &middot; reshamad
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
